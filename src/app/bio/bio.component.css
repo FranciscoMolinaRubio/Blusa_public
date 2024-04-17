@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'BlusaFont';
+    src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BlusaFont2';
+    src: url('/assets/Fuentes/Relevance.ttf');
+}
+
+.banner {
+    height: 100vh;
+    font-family: 'BlusaFont',sans-serif;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.banner video {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.banner-innner {
+    padding: 100px 0;
+}
+
+.banner-left {
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.banner-left h1 {
+    color: #fff;
+    opacity: .8;
+    text-align: center;
+    padding-top: 100px;
+    font-family: 'BlusaFont2',sans-serif;
+    letter-spacing: 10px;
+    font-size: 180px;
+    margin-bottom: 5px;
+}
+
+.banner-left p {
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 20px;
+    font-family: 'BlusaFont',sans-serif;
+    opacity: .8;
+}
+
+.cont {
+    padding-top: 7%;
+    opacity: .9, 5;
+}
+
+.card {
+    padding: 2%;
+    -moz-border-radius: 2%;
+    -webkit-border-radius: 2%;
+    border-radius: 2%;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.08);
+    background: #e3e3e3;
+}
+
+.profile .profile-body {
+    padding: 2%;
+    background: #f0f0f0;
+    -moz-border-radius: 2%;
+    -webkit-border-radius: 2%;
+    border-radius: 2%;
+}
+
+.profile .profile-bio {
+    padding: 2%;
+    background: #f0f0f0;
+    position: relative;
+    border-radius: 1%;
+}
+
+.profile .profile-bio a {
+    left: 50%;
+    bottom: 20px;
+
+    text-align: center;
+    position: absolute;
+}
+
+.profile .profile-bio h2 {
+    margin-top: 0;
+    font-weight: 200;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #585f69;
+    margin-top: 5px;
+    text-shadow: none;
+    font-weight: normal;
+    font-family: 'BlusaFont', serif;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 33px;
+}
+
+p,
+li,
+li a {
+    color: #555;
+}
+
+.col-md-5 {
+    padding-top: 2%;
+}
+
+.hrz-txt-scroll {
+    width: 100%;
+    height: 25rem;
+    padding: 5px;
+    overflow: auto;
+
+    background: #f0f0f0;
+}
+
+.hrz-txt-scroll p {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .banner {
+        padding: 120px 0;
+        height: 100vh;
+        font-family: 'BlusaFont', sans-serif;
+        position: relative;
+        width: 100%;
+        background-color: #000;
+    }
+
+    .banner video {
+        width: 300%;
+    }
+
+    .nav-color {
+
+        background: #000;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        padding-left: 0;
+    }
+
+    .banner-innner {
+        padding: 120px 0;
+    }
+
+    .card {
+        height: 600px;
+        padding: 2%;
+        -moz-border-radius: 2%;
+        -webkit-border-radius: 2%;
+        border-radius: 2%;
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.08);
+        background: #e3e3e3;
+    }
+
+    .profile .profile-body {
+        height: 600px;
+        padding: 2%;
+        background: #f0f0f0;
+        -moz-border-radius: 2%;
+        -webkit-border-radius: 2%;
+        border-radius: 2%;
+    }
+
+
+    .profile .profile-bio {
+        height: 500px;
+        padding: 2%;
+        background: #f0f0f0;
+        position: relative;
+        border-radius: 1%;
+    }
+
+    .hrz-txt-scroll{
+        height: 200px;
+        font-size: 13px;
+
+    }
+}

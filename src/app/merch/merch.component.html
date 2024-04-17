@@ -1,0 +1,180 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <div class="banner">
+    <video autoplay muted loop playsinline class="tagline-video">
+        <source src="./assets/loopHeaders/loopbosqueAncho.mp4" type="video/mp4">
+    </video>
+
+
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col">
+                                <h4><b>Artículos a la venta</b></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/blusablusa.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"Blusa"</div>
+                                <div class="row">Descarga</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-3); sumaArticulos(2)">-</a><a>{{art1}}</a><a (click)="sumaTotal(3); sumaArticulos(1)">+</a>
+                            </div>
+                            <div class="col">&euro; 3.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/k.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"K"</div>
+                                <div class="row">Descarga</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-3); sumaArticulos(4)">-</a><a>{{art2}}</a><a (click)="sumaTotal(3); sumaArticulos(3)">+</a>
+                            </div>
+                            <div class="col">&euro; 3.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/resonance.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"Resonance"</div>
+                                <div class="row">Descarga</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-3); sumaArticulos(6)">-</a><a>{{art3}}</a><a (click)="sumaTotal(3); sumaArticulos(5)">+</a>
+                            </div>
+                            <div class="col">&euro; 3.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/tocabreakbeat.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"Toca breackbeat, perro!"</div>
+                                <div class="row">Descarga</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-3); sumaArticulos(8)">-</a><a>{{art4}}</a><a (click)="sumaTotal(3); sumaArticulos(7)">+</a>
+                            </div>
+                            <div class="col">&euro; 3.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/rotary.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"Rotary"</div>
+                                <div class="row">Descarga</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-3); sumaArticulos(10)">-</a><a>{{art5}}</a><a (click)="sumaTotal(3); sumaArticulos(9)">+</a>
+                            </div>
+                            <div class="col">&euro; 3.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/tocabreakbeat.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"Toca breackbeat, perro!"</div>
+                                <div class="row">CD LP</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-12); sumaArticulos(12)">-</a><a>{{art6}}</a><a (click)="sumaTotal(12); sumaArticulos(11)">+</a>
+                            </div>
+                            <div class="col">&euro; 12.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/resonance.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"Resonance"</div>
+                                <div class="row">CD LP</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-12); sumaArticulos(14)">-</a><a>{{art7}}</a><a (click)="sumaTotal(12); sumaArticulos(13)">+</a>
+                            </div>
+                            <div class="col">&euro; 12.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Portadas/k.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">"K"</div>
+                                <div class="row">CD LP</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-12); sumaArticulos(16)">-</a><a>{{art8}}</a><a (click)="sumaTotal(12); sumaArticulos(15)">+</a>
+                            </div>
+                            <div class="col">&euro; 12.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Camisetas/4.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Camiseta Hombre "K"</div>
+                                <div class="row">Talla L. Roja</div>
+                            </div>
+                            <div class="col">
+                                <a (click)="sumaTotal(-14); sumaArticulos(18)">-</a><a>{{art9}}</a><a (click)="sumaTotal(14); sumaArticulos(17)">+</a>
+                            </div>
+                            <div class="col">&euro; 14.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="./assets/Camisetas/3.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Camiseta Hombre "K"</div>
+                                <div class="row">Talla L. Blanca</div>
+                            </div>
+                            <div class="col">
+                                <a  (click)="sumaTotal(-14); sumaArticulos(20)">-</a><a>{{art10}}</a><a (click)="sumaTotal(14); sumaArticulos(19)">+</a>
+                            </div>
+                            <div class="col">&euro; 14.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 summary">
+                    <div>
+                        <h5><b>Total</b></h5>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col" style="padding-left:0;">ARTÍCULOS {{sumatorioArticulos}}</div>
+                        <div class="col text-right">&euro; {{sumatorio}}</div>
+                    </div>
+                    <form>
+                        <p>Envíos CD´s y Camisetas</p>
+                        <select>
+                            <option class="text-muted">Correo Postal- &euro;2.00</option>
+                        </select>
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">PRECIO TOTAL</div>
+                        <div class="col text-right">&euro; {{sumatorio}}</div>
+                    </div>
+                    <button class="btn">CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+
+
+<!-- </div> -->

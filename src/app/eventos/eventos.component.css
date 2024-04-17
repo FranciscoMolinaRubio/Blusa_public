@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'BlusaFont';
+  src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'BlusaFont2';
+  src: url('/assets/Fuentes/Relevance.ttf');
+}
+
+.banner {
+  height: 100vh;
+  font-family: 'BlusaFont',sans-serif;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.banner video {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.content {
+  padding: 12rem 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+p,
+li {
+  font-family: "Poppins", sans-serif;
+  color: #e0e0e0;
+}
+
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+a,
+a:hover {
+  text-decoration: none !important;
+}
+
+.text-black {
+  color: #c3c3c3;
+}
+
+
+h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .banner {
+    padding: 120px 0;
+    height: 100vh;
+    font-family: 'BlusaFont', sans-serif;
+    position: relative;
+    width: 100%;
+    background-color: #000;
+  }
+
+  .banner video {
+    width: 300%;
+  }
+
+}

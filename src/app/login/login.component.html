@@ -1,0 +1,62 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+<div class="banner">
+  <video autoplay muted playsinline loop class="tagline-video">
+    <source src="./assets/loopHeaders/loopriacuelo.mp4" type="video/mp4">
+  </video>
+
+
+  <section class="vh-100 bg-image" *ngIf="!loading">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Crea tu cuenta</h2>
+
+                <form (ngSubmit)="registrar()" [formGroup]="registrarUsuario">
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Tu Email"
+                      name="mail" formControlName="mail" />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4cg" class="form-control form-control-lg"
+                      placeholder="Password" name="pass" formControlName="pass" />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4cdg" class="form-control form-control-lg"
+                      placeholder="Repite tu password" name="repitepass" formControlName="repitepass" />
+                  </div>
+
+                  <div class="form-check d-flex justify-content-left mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                    <label class="form-check-label" for="form2Example3g"><a href="#!" class="text-body"><u></u></a>
+                      Estoy de acuerdo con los términos del servicio
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" [disabled]="registrarUsuario.invalid"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registro</button>
+                  </div>
+
+                  <p class="text-center text-muted mt-5 mb-0">Ya tienes una cuenta? <a href="./loginreal"
+                      class="fw-bold text-body"><u>Login aquí</u></a></p>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

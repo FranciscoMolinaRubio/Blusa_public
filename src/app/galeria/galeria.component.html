@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div id="bloque1"></div>
+
+<div class="container-fluid">
+    <div class="col-md-12" >
+      <div class="row" >
+      
+        <div class="gal">
+        
+          <img  (click)="manejador(i)" *ngFor="let eachImg of imagenes; let i=index" class="grid__img"
+          [alt]="eachImg.alt" [src]="eachImg.src">
+
+        </div></div></div>
+
+        <div class="lightbox" [ngClass]="{'isActive': lightboxActive}">
+          <button type="button"  (click)="manejadorbtn()"  class="lightboxbtn" class="btn btn-light">
+          <svg class="lightboxsvg" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>  
+          </button>
+          <img alt="High" [src]="imagenes[imgIndex].src" class="lightboximg" >
+        </div>
+
+        <div class="containermouse" (click)="scrollup()">
+          <div class="field">
+            <div class="mouse"></div></div>
+        </div>
+      </div>

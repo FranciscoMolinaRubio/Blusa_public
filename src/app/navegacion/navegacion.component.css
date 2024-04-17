@@ -1,0 +1,177 @@
+#cesta {
+    margin-top: 0px;
+    margin-right: 40px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-family: 'BlusaFont', serif;
+    color: #d7d7d7;
+    font-size: 15px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    cursor: pointer;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+
+    color: white;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    padding: 0px;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    z-index: 1;
+}
+
+@font-face {
+    font-family: 'BlusaFont';
+    src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BlusaFont2';
+    src: url('/assets/Fuentes/Relevance.ttf');
+}
+
+
+#menu-desktop {
+    display: none;
+    
+}
+
+#menu-movil {
+    display: flex;
+    width: auto;
+}
+
+
+/* @media only screen and (max-width: 800px) { */
+
+/*     .banner {
+        padding: 120px 0;
+        height: auto;
+    }
+ */
+/*     .navbar-light .navbar-nav .nav-link {
+        padding-left: 0;
+    }
+
+    .banner-innner {
+        padding: 120px 0;
+    }
+} */
+
+@media (min-width: 1400px) {
+    #menu-desktop {
+        display: flex;
+        padding-left: 23%;
+    }
+
+    #menu-movil {
+        display: none;
+    }
+
+}
+
+@media(max-width:767px) {
+
+    .banner video {
+        width: 300%;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        padding-left: 0;
+        padding-top: 0;
+    }
+}
+
+/* @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+    #menu-desktop {
+        display: flex;
+        padding-left: 10%;
+    }
+
+    #menu-movil {
+        display: none;
+    }
+} */
+
+#burguer {
+    min-width: 18px;
+    min-height: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+ /*    margin-left: 20px; */
+
+}
+
+#burguer span {
+    border-radius: 5px;
+    background-color: azure;
+    width: 100%;
+    height: 2px;
+    transition: all 300ms ease-out;
+
+}
+
+#burguer.active .line1 {
+    opacity: 0;
+    width: 0;
+    cursor: pointer;
+}
+
+#burguer.active .line2 {
+    transform: translateY(2.5px) rotate(45deg);
+    cursor: pointer;
+}
+
+#burguer.active .line3 {
+    transform: translateY(-2px) rotate(-45deg);
+    cursor: pointer;
+}
+
+#menu-movil div:nth-child(2) {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 15px;
+    width: 100vw;
+    height: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transition: all 250ms ease-out;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.8;
+}
+
+#menu-movil div.open:nth-child(2) {
+    height: 420px;
+}
+
+#menu-movil a {
+    font-family: 'BlusaFont', serif;
+    color: #d7d7d7;
+    font-size: 11px;
+}
+
+.icon {
+    transform: scale(0.7);
+    margin: 0;
+}
+
+#cesta2 {
+    margin-top: 15px;
+}

@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'BlusaFont';
+  src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'BlusaFont2';
+  src: url('/assets/Fuentes/Relevance.ttf');
+}
+
+.banner {
+  height: 100vh;
+  font-family: 'BlusaFont',sans-serif;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.banner video {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.card {
+  opacity: 0.95;
+  background: #fdfdfd;
+}
+
+.gradient-custom-4 {
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(103, 111, 164), rgb(125, 185, 215));
+  font-size: 16px;
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(0, 140, 153), rgba(143, 211, 244, 1));
+  font-size: 16px;
+}
+
+.form-control {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 767px) {
+
+  .banner {
+    padding: 120px 0;
+    height: 100vh;
+    font-family: 'BlusaFont', sans-serif;
+    position: relative;
+    width: 100%;
+    background-color: #000;
+  }
+
+  .banner video {
+    width: 475%;
+  }
+
+  .container,
+  .mask {
+    top: 0;
+    margin-top: 0;
+    margin-bottom: 200px;
+  }
+}
