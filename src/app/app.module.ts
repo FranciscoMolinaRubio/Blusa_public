@@ -17,7 +17,6 @@ import { LoginComponent } from './login/login.component';
 import { MerchComponent } from './merch/merch.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
@@ -32,7 +31,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { ModalComponent } from './components/modal/modal.component';
-
+import { NgxPayPalModule } from 'ngx-paypal';
 const appRoutes: Routes = [
 
   { path: '', component: InicioComponent },
@@ -47,6 +46,7 @@ const appRoutes: Routes = [
   { path: 'merch', component: MerchComponent },
   { path: 'loginreal', component: LoginrealComponent },
   { path: 'merchPaypal', component: PrincipalComponent },
+  
 ];
 
 @NgModule({
@@ -70,6 +70,7 @@ const appRoutes: Routes = [
     CartComponent,
     CartItemComponent,
     ModalComponent,
+    
 
   ],
   imports: [
@@ -81,7 +82,6 @@ const appRoutes: Routes = [
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
@@ -91,6 +91,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatBadgeModule,
     ReactiveFormsModule,
+    NgxPayPalModule,
 
   ],
   providers: [
