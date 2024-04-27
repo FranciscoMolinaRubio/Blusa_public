@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { LightgalleryModule } from 'lightgallery/angular';
-import { BeforeSlideDetail } from 'lightgallery/lg-events';
-import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { ViewportScroller } from '@angular/common';
 
 
@@ -13,7 +10,6 @@ import { ViewportScroller } from '@angular/common';
 
 
 export class GaleriaComponent {
-  icon3 = faMapLocationDot;
 
   public imagenes: GridImg[] = [
   

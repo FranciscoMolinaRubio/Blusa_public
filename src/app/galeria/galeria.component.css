@@ -51,24 +51,16 @@
    pointer-events: auto;
  }
 
- .lightboxbtn {
-   width: 0.5rem;
-   height: 0.5rem;
-   cursor: pointer;
-   opacity: 0.7;
-
- }
-
- .lightboxsvg {
-   width: 1rem;
-   height: 1rem;
-   fill: #1a1a1a;
-   opacity: 0.7;
-
+  button{
+    position: absolute;
+  margin-bottom: 40%;
+  width: 15px;
+  height: 30px;
  }
 
  .lightboximg {
-   height: 70%;
+  padding-top: 1%;
+   height: 75%;
    width: auto;
    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .4);
  }

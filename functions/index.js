@@ -1,4 +1,5 @@
-const stripe = require('stripe')('sk_test_51P6HxYRxMpzhnAtLSp9y0rJAJfrDeuVqTcndNjZ8aMeuq89J3S4TtkcFLtURzaUG5zp0CDu6JQV0AINTgr6RekDB004nYU39bz')
+const stripe = require('stripe')('sk_test_MY_KEY_HERE')
+
 const functions = require("firebase-functions");
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);

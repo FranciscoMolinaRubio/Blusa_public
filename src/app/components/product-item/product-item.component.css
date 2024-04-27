@@ -1,0 +1,12 @@
+.card-img-top{
+    width: 150px;
+    height: 260px;
+    align-self: center;
+    padding-top: 20px;
+    
+}
+
+.card{
+    padding-top: 30px;
+    text-align: center;
+}

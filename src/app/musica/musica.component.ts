@@ -259,7 +259,6 @@ export class MusicaComponent implements OnInit {
                          `${Math.floor(duration.asMinutes())}:
                           ${duration.seconds()}`;
     }
-
   }
 
   durationSlider(event: any) {

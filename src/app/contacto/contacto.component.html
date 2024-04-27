@@ -2,73 +2,99 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
- <div class="banner">
-    <video autoplay muted loop playsinline class="tagline-video">
-        <source src="./assets/loopHeaders/loopheadernatural3.mp4" type="video/mp4">
-    </video>
+<div class="banner">
+  <video autoplay muted loop playsinline class="tagline-video">
+    <source src="./assets/loopHeaders/loopheadernatural3.mp4" type="video/mp4">
+  </video>
 
 
-    <div class="content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5 mr-auto">
-            <h2>Contáctanos</h2><br>
-            <p class="mb-5">Si quieres hacer alguna sugerencia o contactar con nosotros para contratación o cualquier otro
-              motivo, no dudes en hacerlo a través de alguna de las siguientes vías.</p>
-            <ul class="list-unstyled pl-md-5 mb-5">
-              <li><span class="mr-3"><fa-icon [icon]="icon3"></fa-icon></span>Local, Sevilla, España</li>
-              <li><span class="mr-3"><fa-icon [icon]="icon"></fa-icon></span> +34 699528360</li>
-              <li><span class="mr-3"><fa-icon [icon]="icon2"></fa-icon></span> blusablusablusa&#64;gmail.com </li>
-            </ul>
-          </div>
-    
-            <div class="col-md-6">
-              <form [formGroup]="form" class="mb-5" method="post" id="contactForm" name="contactForm" action="javascript:void(0)"
-                (submit)="send()">
-                <div class="row">
-    
-                  <div class="col-md-12 form-group">
-                    <label for="name" class="col-form-label">Nombre</label>
-                    <input formControlName="from_name" type="text" class="form-control" name="name" id="name">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 form-group">
-                    <label for="email" class="col-form-label">Email</label>
-                    <input formControlName="from_email" type="text" class="form-control" name="email" id="email">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 form-group">
-                    <label for="message" class="col-form-label">Mensaje</label>
-                    <textarea formControlName="message" class="form-control" name="message" id="message" cols="30"
-                      rows="7"></textarea>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <input type="submit" value="Enviar" class="btn btn-secondary rounded-2 py-2 px-4">
-                    <span class="submitting"></span>
-                  </div>
-                </div>
-              </form>
-              <div id="form-message-warning mt-4"></div>
-              <div id="form-message-success">
-                Su mensaje fue enviado. Gracias!
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mr-auto">
+          <h2>Contáctanos</h2><br>
+          <p class="mb-5">Si quieres hacer alguna sugerencia o contactar con nosotros para contratación o cualquier otro
+            motivo, no dudes en hacerlo a través de alguna de las siguientes vías.</p>
+          <ul class="list-unstyled pl-md-5 mb-5">
+            <li><span class="mr-3"><fa-icon [icon]="icon3"></fa-icon></span>Local, Sevilla, España</li>
+            <li><span class="mr-3"><fa-icon [icon]="icon"></fa-icon></span> +34 699528360</li>
+            <li><span class="mr-3"><fa-icon [icon]="icon2"></fa-icon></span> blusablusablusa&#64;gmail.com </li>
+
+          </ul>
+          <ul class="d-flex align-items-center gap-3 list-unstyled pl-md-5 mb-5">
+
+            <li>
+              <a href="https://www.facebook.com/blusaband" target="_blank">
+                <img src="./assets/icons/iconizer-fb.svg" width="30px" height="30px" />&nbsp;&nbsp;
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/blusaband" target="_blank">
+                <img src="./assets/icons/iconizer-insta.svg" width="28px" height="28px" />
+              </a>
+            </li>
+
+            <li>
+              <a href="https://twitter.com/blusaband?lang=es" target="_blank">
+                <img src="./assets/icons/iconizer-x.svg" width="40px" height="40px" />
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.youtube.com/channel/UCyGT6U_FzYar_7jMYu-Kafg" target="_blank">
+                <img src="./assets/icons/iconizer-you.svg" width="35px" height="35px" />
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <form [formGroup]="form" class="mb-5" method="post" id="contactForm" name="contactForm"
+            action="javascript:void(0)" (submit)="send()">
+            <div class="row">
+
+              <div class="col-md-12 form-group">
+                <label for="name" class="col-form-label">Nombre</label>
+                <input formControlName="from_name" type="text" class="form-control" name="name" id="name">
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label for="email" class="col-form-label">Email</label>
+                <input formControlName="from_email" type="text" class="form-control" name="email" id="email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label for="message" class="col-form-label">Mensaje</label>
+                <textarea formControlName="message" class="form-control" name="message" id="message" cols="30"
+                  rows="7"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <input type="submit" value="Enviar" class="btn btn-secondary rounded-2 py-2 px-4">
+                <span class="submitting"></span>
+              </div>
+            </div>
+          </form>
+          <div id="form-message-warning mt-4"></div>
+          <div id="form-message-success">
+            Su mensaje fue enviado. Gracias!
           </div>
-          
         </div>
       </div>
-    </div>
-  
-    
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/main.js"></script>
-            
-       
 
+    </div>
+
+  </div>
+</div>
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/main.js"></script>

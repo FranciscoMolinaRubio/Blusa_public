@@ -15,9 +15,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
 import { MerchComponent } from './merch/merch.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
@@ -25,25 +23,34 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { LoginrealComponent } from './loginreal/loginreal.component';
 import { MatIconModule } from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from './components/header/header.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { ProductlistComponent } from './components/productlist/productlist.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 const appRoutes: Routes = [
-  
-    { path: '', component: InicioComponent },
-    { path: 'contacto', component: ContactoComponent },
-    { path: 'eventos', component: EventosComponent },
-    { path: 'galeria', component: GaleriaComponent },
-    { path: 'musica/:id', component: MusicaComponent },
-    { path: 'musica', component: MusicaComponent },
-    { path: 'video', component: VideoComponent },
-    { path: 'bio', component: BioComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'merch', component: MerchComponent },
-    { path: 'loginreal', component: LoginrealComponent },
+
+  { path: '', component: InicioComponent },
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'eventos', component: EventosComponent },
+  { path: 'galeria', component: GaleriaComponent },
+  { path: 'musica/:id', component: MusicaComponent },
+  { path: 'musica', component: MusicaComponent },
+  { path: 'video', component: VideoComponent },
+  { path: 'bio', component: BioComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'merch', component: MerchComponent },
+  { path: 'loginreal', component: LoginrealComponent },
+  { path: 'merchPaypal', component: PrincipalComponent },
 ];
 
 @NgModule({
-  declarations: [		
+  declarations: [
     ContactoComponent,
     MusicaComponent,
     AppComponent,
@@ -56,12 +63,18 @@ const appRoutes: Routes = [
     LoginComponent,
     MerchComponent,
     LoginrealComponent,
+    HeaderComponent,
+    PrincipalComponent,
+    ProductlistComponent,
+    ProductItemComponent,
+    CartComponent,
+    CartItemComponent,
+    ModalComponent,
 
-   ],
+  ],
   imports: [
     CommonModule,
     BrowserModule,
-
     AppRoutingModule,
     LightgalleryModule,
     RouterModule.forRoot(appRoutes),
@@ -70,15 +83,14 @@ const appRoutes: Routes = [
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
-
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right'
     }), // ToastrModule added
     MatIconModule,
+    MatButtonModule,
     MatBadgeModule,
     ReactiveFormsModule,
-
 
   ],
   providers: [
