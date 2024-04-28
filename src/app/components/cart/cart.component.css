@@ -1,4 +1,44 @@
+@font-face {
+    font-family: 'BlusaFont';
+    src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'BlusaFont2';
+    src: url('/assets/Fuentes/Relevance.ttf');
+  }
+
 .fa-trash-alt{
-    color: brown;
+    color: rgb(168, 99, 99);
     cursor: pointer;
+}
+
+.alert h4{
+    padding-top: 10px;
+    font-family: 'BlusaFont2';
+}
+
+button {
+    padding-top: 5px;
+    padding-bottom: 10px;
+
+}
+
+.alert{
+    opacity: 0.9;
+    border-style: solid 1px;
+}
+
+.text-center{
+    opacity: 0.93;
+    margin-bottom: 5px;
+}
+
+.modal-backdrop {
+    z-index: 1;
+}
+
+.icon{
+    color:rgb(42, 123, 143);
+    padding-top: 5px;
 }

@@ -1,12 +1,32 @@
 .card-img-top{
-    width: 150px;
-    height: 260px;
+    width: 250px;
+    height: 250px;
     align-self: center;
-    padding-top: 20px;
+    padding-top: 10px;
+    opacity: 1;
     
 }
 
 .card{
-    padding-top: 30px;
+    padding-top: 10px;
     text-align: center;
+    height: 420px;
+    font-size: 13px;
+    opacity: 0.95;
+
+}
+
+.card-title{
+    font-size: 16px;
+}
+
+.icon{
+    width:20px;
+    height: 20px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+
+.card-body{
+    
 }

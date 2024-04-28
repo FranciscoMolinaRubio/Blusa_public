@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LightgalleryModule } from 'lightgallery/angular';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,12 @@ import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireModule } from '@angular/fire/compat';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 const appRoutes: Routes = [
 
   { path: '', component: InicioComponent },
@@ -71,7 +77,6 @@ const appRoutes: Routes = [
     CartItemComponent,
     ModalComponent,
     
-
   ],
   imports: [
     CommonModule,
@@ -92,8 +97,14 @@ const appRoutes: Routes = [
     MatBadgeModule,
     ReactiveFormsModule,
     NgxPayPalModule,
+    NgbModule,
+    NgxSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    BrowserAnimationsModule
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
   ],
   bootstrap: [AppComponent]

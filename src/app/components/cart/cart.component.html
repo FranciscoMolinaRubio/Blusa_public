@@ -1,13 +1,13 @@
 <div *ngIf="cartItems.length<1">
-<div class="alert alert-info text-center">
-    <h4>Su carro está vacío</h4>
+<div class="alert alert-secondary text-center " role="alert" style="border: 2px solid rgb(42, 123, 143);">
+    <h4>Nada en su carro&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon class="icon">shopping_cart</mat-icon> </h4>
 </div>
 </div>
 <div *ngIf="cartItems.length>0">
-<div class="alert alert-info text-center" >
-    <h4>Su compra</h4>
+<div class="alert alert-secondary text-center" style="border: 1px solid rgb(42, 123, 143);">
+    <h4>Su compra&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon class="icon">shopping_cart</mat-icon></h4>
 </div>
-<div class="text-center">
+<div class="text-center" style="border: 1px solid rgb(42, 123, 143);">
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let item of cartItems; index as i">
             <div class="row">
@@ -15,17 +15,19 @@
         <app-cart-item [cartItem]="item"></app-cart-item>
     </div>
     <div class="col-md-2">
-        <i class="far fa-trash-alt fa-2x" (click)="deleteItem(i)"></i>
+        <i class="far fa-trash-alt" (click)="deleteItem(i)"></i>
     </div>
     </div>
         </li>
        
       </ul>
 </div>
-<div class="alert alert-warning text-center">
+<div class="alert alert-secondary text-center" style="border: 1px solid rgb(42, 123, 143);">
     <strong>Total. {{total}} €</strong>
 </div>
-<button class="btn btn-outline-danger btn-block" (click)="emptyCart()">
+<br>
+<button class="btn btn-outline-danger btn-block mb-3" (click)="emptyCart()">
     <i class="fas fa-ban"></i> Vaciar carro
 </button>
+<ngx-paypal [config]="payPalConfig" class="pay"></ngx-paypal>
 </div>

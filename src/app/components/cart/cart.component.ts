@@ -1,8 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import { Product } from '../../models/product';
 import { CartItem } from '../../models/cart-item';
 import { StorageService } from '../../services/storage.service';
+import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { environment } from '../../../environments/environment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../modal/modal.component';
+
+
+
 
 @Component({
   selector: 'app-cart',
@@ -13,18 +20,86 @@ export class CartComponent implements OnInit{
 
   cartItems = [];
   total: number = 0;
+  public payPalConfig ? : IPayPalConfig;
 
-  constructor(private messageService: MessageService,
-  private storageService: StorageService) {
+  constructor(
+    private messageService: MessageService,
+    private storageService: StorageService,
+    private modalService: NgbModal
+   ) {
     
   }
+
+
   ngOnInit(): void {
+    this.initConfig();
     this.getItem();
     this.total = this.getTotal();
     if (this.storageService.existsCart()) {
       this.cartItems = this.storageService.getCart();
     }
+    
   }
+
+  private initConfig(): void {
+    this.payPalConfig = {
+        currency: 'EUR',
+        clientId: environment.clientId,
+        createOrderOnClient: (data) => < ICreateOrderRequest > {
+            intent: 'CAPTURE',
+            purchase_units: [{
+                amount: {
+                    currency_code: 'EUR',
+                    value: this.getTotal().toString(),
+                    breakdown: {
+                        item_total: {
+                            currency_code: 'EUR',
+                            value: this.getTotal().toString()
+                        }
+                    }
+                },
+              items: this.getItemsList()
+            }]
+        },
+        advanced: {
+            commit: 'true'
+        },
+        style: {
+            label: 'paypal',
+            layout: 'vertical'
+        },
+        onApprove: (data, actions) => {
+            console.log('onApprove - transaction was approved, but not authorized', data, actions);
+            actions.order.get().then(details => {
+                console.log('onApprove - you can get full order details inside onApprove: ', details);
+            });
+
+        },
+        onClientAuthorization: (data) => {
+          console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point',
+            JSON.stringify(data));
+          this.openModal(
+            data.purchase_units[0].items,
+            data.purchase_units[0].amount.value
+          );
+          this.emptyCart();
+            
+        },
+        onCancel: (data, actions) => {
+            console.log('OnCancel', data, actions);
+           
+
+        },
+        onError: err => {
+            console.log('OnError', err);
+          
+        },
+        onClick: (data, actions) => {
+            console.log('onClick', data, actions);
+          
+        }
+    };
+}
 
   getItem(): void{
     this.messageService.getMessage().subscribe((product: Product) => {
@@ -62,4 +137,37 @@ export class CartComponent implements OnInit{
     this.cartItems.splice(i, 1);
     this.storageService.setCart(this.cartItems);
   }
+
+  getItemsList(): any[]{
+    const items: any[] = [];
+    let item = {};
+    this.cartItems.forEach((it: CartItem) => {
+      item = {
+        name: it.productName,
+        quantity: it.qty,
+        unit_amount: { value: it.productPrice, currency_code: 'EUR' }
+
+      };
+      items.push(item);
+    }
+    );
+    return items;
+  }
+
+  
+  openModal(items, amount): void {
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.items = items;
+    modalRef.componentInstance.amount = amount;
+    
+    // Cambiar el z-index cuando el modal se haya abierto
+    setTimeout(() => {
+      const modalElement = document.querySelector('.modal-backdrop'); // Ajusta el selector según tu configuración
+      if (modalElement) {
+        modalElement['style'].zIndex = '1'; // Cambia el z-index
+      }
+    }, 0); // El timeo
+  }
+
+  
 }

@@ -47,7 +47,6 @@ export class LoginComponent {
       console.log(error);
       this.toastr.error(this.firebaseError(error.code), 'Error')
     }
-
     )
   }
 
@@ -63,8 +62,6 @@ export class LoginComponent {
         return "No ingresaste la contraseña";
       default:
         return "Error desconocido. Qué le vamos a hacer..."
-
     }
   }
-
 }

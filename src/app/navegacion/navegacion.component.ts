@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth'; 
 import { Router } from '@angular/router';
 import { ComunicacionesService } from '../servicios/comunicaciones.service';
 
@@ -17,7 +17,7 @@ export class NavegacionComponent {
 
 
   constructor(
-    private afAuth: AngularFireAuth,
+ private afAuth: AngularFireAuth, 
     private router: Router,
     private comunicacionesService: ComunicacionesService) {
   }
@@ -31,7 +31,7 @@ export class NavegacionComponent {
   logOut() {
     this.afAuth.signOut().then(()=> this.router.navigate(['/loginreal']))
   }
-
+ 
   isClicked: boolean = false;
 
   toggleClass() {

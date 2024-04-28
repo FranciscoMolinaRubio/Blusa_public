@@ -2,9 +2,8 @@
     <img [src]="product.imageUrl" class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">{{product.name}}</h5>
-      <p class="card-text">{{product.description}}</p>
-      <p class="card-text">{{product.price}}</p>
-      <button class="btn btn-outline-succes" (click)="addToCart()">
-        <i class="fas fa-cart-icon"></i>Añadir al carro</button>
+      <p class="card-text">{{product.description}}. Precio: {{product.price}} €</p>
+      <button class="btn btn-outline-success" (click)="addToCart()">
+        <mat-icon class="icon">shopping_cart</mat-icon> &nbsp;&nbsp; Añadir al carro</button>
     </div>
   </div>

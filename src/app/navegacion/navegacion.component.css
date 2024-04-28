@@ -52,22 +52,6 @@ header {
 }
 
 
-/* @media only screen and (max-width: 800px) { */
-
-/*     .banner {
-        padding: 120px 0;
-        height: auto;
-    }
- */
-/*     .navbar-light .navbar-nav .nav-link {
-        padding-left: 0;
-    }
-
-    .banner-innner {
-        padding: 120px 0;
-    }
-} */
-
 @media (min-width: 1400px) {
     #menu-desktop {
         display: flex;
@@ -92,17 +76,6 @@ header {
     }
 }
 
-/* @media only screen and (min-width: 1200px) and (max-width: 1400px) {
-    #menu-desktop {
-        display: flex;
-        padding-left: 10%;
-    }
-
-    #menu-movil {
-        display: none;
-    }
-} */
-
 #burguer {
     min-width: 18px;
     min-height: 15px;
@@ -111,7 +84,6 @@ header {
     align-items: center;
     justify-content: space-around;
     cursor: pointer;
- /*    margin-left: 20px; */
 
 }
 

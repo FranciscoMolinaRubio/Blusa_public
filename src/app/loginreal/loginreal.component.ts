@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -23,16 +23,12 @@ export class LoginrealComponent/*  implements OnInit  */ {
       pass: ['', Validators.required]
     })
   }
-  /*   ngOnInit(): void {
-      throw new Error('Method not implemented.');
-    }
-   */
+
 
   login() {
 
     const mail = this.loginUsuario.value.mail;
     const pass = this.loginUsuario.value.pass;
-
 
     this.afAuth.signInWithEmailAndPassword(mail, pass).then((user) => {
       this.router.navigate(['./merch']);
@@ -41,7 +37,6 @@ export class LoginrealComponent/*  implements OnInit  */ {
       console.log(error);
       this.toastr.error(this.firebaseError(error.code), 'Error')
     }
-
     )
   }
 
@@ -55,12 +50,10 @@ export class LoginrealComponent/*  implements OnInit  */ {
         return "Credenciales incorrectas";
       case 'auth/wrong-password':
         return "Contraseña incorrecta";
-        case 'auth/missing-password':
-          return "No ingresaste la contraseña";
+      case 'auth/missing-password':
+        return "No ingresaste la contraseña";
       default:
         return "Error desconocido. Qué le vamos a hacer..."
-
     }
   }
-
 }
