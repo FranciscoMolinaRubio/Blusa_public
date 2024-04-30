@@ -75,7 +75,11 @@ export class GaleriaComponent {
     { src: "./assets/Photo/Varios/3.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Varios/4.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Varios/piosound1.jpg", alt: 'Imagen 0' },
-    { src: "./assets/Photo/Varios/_MG_7612.jpg", alt: 'Imagen 0' }
+    { src: "./assets/Photo/Varios/_MG_7612.jpg", alt: 'Imagen 0' },
+    { src: "./assets/Photo/Breakbeat/trackbandcamp.jpg", alt: 'Imagen 0' },
+    { src: "./assets/Photo/Breakbeat/Untitled-3.jpg", alt: 'Imagen 0' },
+    { src: "./assets/Photo/Varios/youtube.jpg", alt: 'Imagen 0' },
+    { src: "./assets/Photo/Varios/fotogramapromo2.jpg", alt: 'Imagen 0' }
 
 
   ]

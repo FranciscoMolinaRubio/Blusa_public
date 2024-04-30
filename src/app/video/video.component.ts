@@ -12,7 +12,6 @@ export class VideoComponent {
 
   ngOnInit() {
     Fancybox.bind(this.elRef.nativeElement, '[data-fancybox]', {
-      // Custom options
     });
   }
 

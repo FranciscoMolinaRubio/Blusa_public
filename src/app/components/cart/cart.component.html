@@ -24,6 +24,7 @@
 </div>
 <div class="alert alert-secondary text-center" style="border: 1px solid rgb(42, 123, 143);">
     <strong>Total. {{total}} €</strong>
+    <div *ngIf="recibido"><p>{{descuento}}</p></div>
 </div>
 <br>
 <button class="btn btn-outline-danger btn-block mb-3" (click)="emptyCart()">

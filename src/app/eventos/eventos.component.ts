@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { ComunicacionesService } from '../servicios/comunicaciones.service';
 
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
   styleUrl: './eventos.component.css'
 })
-export class EventosComponent {
+export class EventosComponent implements OnInit {
 
-  constructor(){}
+  recibido: boolean;
+  textoLogeado= "Código de descuento para usuarios registrados: 'BlusaDescount'";
+  
+  private unsubscribe = new Subject<void>();
+  constructor(public mensajerecibido: ComunicacionesService) {
+    
+  }
+  ngOnInit(): void {
+    this.mensajerecibido.getData$().pipe(takeUntil(this.unsubscribe)).subscribe(data => {
+      this.recibido = data;
+    });
+
+  }
 
 }

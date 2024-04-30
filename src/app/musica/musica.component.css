@@ -187,8 +187,8 @@ h5 {
 h6 {
   margin: 0;
   padding: 0;
-  font-size: 13px;
-  line-height: 13px;
+  font-size: 12px;
+  line-height: 12px;
   font-family: 'Open Sans', serif;
   font-weight: 700;
   color: #f0f0f0;
@@ -344,7 +344,7 @@ width: 366px;
 
 .list tr {
   transform-origin: 0% 50%;
-  height: 50px;
+  height: 41px;
   text-align: center;
   background: #1d1d1d;
   text-indent: 8px;
@@ -355,11 +355,14 @@ width: 366px;
   cursor: pointer;
 }
 
+
+
 .title {
   width: 215px;
   text-align: left;
   text-indent: 15px;
   transition: all 0.11s ease-in;
+  height: 5px;
 }
 
 .list tr:hover .title {

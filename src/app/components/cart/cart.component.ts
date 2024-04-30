@@ -7,6 +7,8 @@ import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { environment } from '../../../environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../modal/modal.component';
+import { ComunicacionesService } from '../../servicios/comunicaciones.service';
+import { Subject, takeUntil } from 'rxjs';
 
 
 
@@ -20,12 +22,16 @@ export class CartComponent implements OnInit{
 
   cartItems = [];
   total: number = 0;
-  public payPalConfig ? : IPayPalConfig;
+  public payPalConfig?: IPayPalConfig;
+  recibido: boolean;
+  private unsubscribe = new Subject<void>();
+  descuento = "Aplicado 10% de Descuento a usuario registrado";
 
   constructor(
     private messageService: MessageService,
     private storageService: StorageService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public mensajerecibido: ComunicacionesService
    ) {
     
   }
@@ -38,7 +44,10 @@ export class CartComponent implements OnInit{
     if (this.storageService.existsCart()) {
       this.cartItems = this.storageService.getCart();
     }
-    
+    this.mensajerecibido.getData$().pipe(takeUntil(this.unsubscribe)).subscribe(data => {
+      this.recibido = data;
+    });
+    this.emptyCart();
   }
 
   private initConfig(): void {
@@ -122,7 +131,10 @@ export class CartComponent implements OnInit{
   getTotal(): number{
     let total = 0;
     this.cartItems.forEach(item => {
-      total += item.qty * item.productPrice;
+      if (this.recibido) {
+        total += item.qty * (item.productPrice - item.productPrice * 0.10);
+      }else {total += item.qty * item.productPrice}
+      
     });
     return +total.toFixed(2);
   }
