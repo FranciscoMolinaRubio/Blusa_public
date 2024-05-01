@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuthProvider } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -35,7 +36,9 @@ export class LoginrealComponent  implements OnInit, OnDestroy{
   ngOnInit(): void {
   }
 
-
+  googleClick() {
+    this.afAuth.signInWithPopup(new GoogleAuthProvider());
+  }
   login() {
 
     const mail = this.loginUsuario.value.mail;

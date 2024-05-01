@@ -10,14 +10,12 @@ import { ModalComponent } from '../modal/modal.component';
 import { ComunicacionesService } from '../../servicios/comunicaciones.service';
 import { Subject, takeUntil } from 'rxjs';
 
-
-
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
+  
 export class CartComponent implements OnInit{
 
   cartItems = [];
@@ -32,10 +30,7 @@ export class CartComponent implements OnInit{
     private storageService: StorageService,
     private modalService: NgbModal,
     public mensajerecibido: ComunicacionesService
-   ) {
-    
-  }
-
+   ) {}
 
   ngOnInit(): void {
     this.initConfig();
@@ -82,7 +77,6 @@ export class CartComponent implements OnInit{
             actions.order.get().then(details => {
                 console.log('onApprove - you can get full order details inside onApprove: ', details);
             });
-
         },
         onClientAuthorization: (data) => {
           console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point',
@@ -97,7 +91,6 @@ export class CartComponent implements OnInit{
         onCancel: (data, actions) => {
             console.log('OnCancel', data, actions);
            
-
         },
         onError: err => {
             console.log('OnError', err);
@@ -105,7 +98,6 @@ export class CartComponent implements OnInit{
         },
         onClick: (data, actions) => {
             console.log('onClick', data, actions);
-          
         }
     };
 }
@@ -131,10 +123,7 @@ export class CartComponent implements OnInit{
   getTotal(): number{
     let total = 0;
     this.cartItems.forEach(item => {
-      if (this.recibido) {
-        total += item.qty * (item.productPrice - item.productPrice * 0.10);
-      }else {total += item.qty * item.productPrice}
-      
+      total += item.qty * item.productPrice;
     });
     return +total.toFixed(2);
   }
@@ -172,14 +161,11 @@ export class CartComponent implements OnInit{
     modalRef.componentInstance.items = items;
     modalRef.componentInstance.amount = amount;
     
-    // Cambiar el z-index cuando el modal se haya abierto
     setTimeout(() => {
-      const modalElement = document.querySelector('.modal-backdrop'); // Ajusta el selector según tu configuración
+      const modalElement = document.querySelector('.modal-backdrop'); 
       if (modalElement) {
-        modalElement['style'].zIndex = '1'; // Cambia el z-index
+        modalElement['style'].zIndex = '1'; 
       }
-    }, 0); // El timeo
+    }, 0); 
   }
-
-  
 }

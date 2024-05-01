@@ -14,7 +14,6 @@ import { MusicaComponent } from './musica/musica.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
-import { MerchComponent } from './merch/merch.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
@@ -24,7 +23,6 @@ import { LoginrealComponent } from './loginreal/loginreal.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
-import { HeaderComponent } from './components/header/header.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
@@ -49,7 +47,6 @@ const appRoutes: Routes = [
   { path: 'video', component: VideoComponent },
   { path: 'bio', component: BioComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'merch', component: MerchComponent },
   { path: 'loginreal', component: LoginrealComponent },
   { path: 'merchPaypal', component: PrincipalComponent },
   
@@ -67,9 +64,7 @@ const appRoutes: Routes = [
     BioComponent,
     EventosComponent,
     LoginComponent,
-    MerchComponent,
     LoginrealComponent,
-    HeaderComponent,
     PrincipalComponent,
     ProductlistComponent,
     ProductItemComponent,

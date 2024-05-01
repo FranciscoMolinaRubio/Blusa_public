@@ -8,7 +8,6 @@ import { ViewportScroller } from '@angular/common';
   styleUrl: './galeria.component.css'
 })
 
-
 export class GaleriaComponent {
 
   public imagenes: GridImg[] = [
@@ -80,8 +79,6 @@ export class GaleriaComponent {
     { src: "./assets/Photo/Breakbeat/Untitled-3.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Varios/youtube.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Varios/fotogramapromo2.jpg", alt: 'Imagen 0' }
-
-
   ]
 
   public lightboxActive: boolean = false;
@@ -98,12 +95,9 @@ export class GaleriaComponent {
 
   scrollup() {
     this.viewportScroller.scrollToAnchor('bloque1');
-
   }
   
-  constructor(private viewportScroller: ViewportScroller) {
- 
-  }
+  constructor(private viewportScroller: ViewportScroller) {}
 }
 
 interface GridImg {

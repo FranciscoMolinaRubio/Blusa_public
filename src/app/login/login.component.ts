@@ -58,7 +58,7 @@ export class LoginComponent {
         return "Contraseña débil";
       case 'auth/invalid-email':
         return "Correo no válido";
-        case 'auth/missing-password':
+      case 'auth/missing-password':
         return "No ingresaste la contraseña";
       default:
         return "Error desconocido. Qué le vamos a hacer..."

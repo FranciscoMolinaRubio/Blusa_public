@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { ComunicacionesService } from '../servicios/comunicaciones.service';
 
 @Component({
@@ -14,13 +14,11 @@ export class EventosComponent implements OnInit {
   
   private unsubscribe = new Subject<void>();
   constructor(public mensajerecibido: ComunicacionesService) {
-    
-  }
+}
+
   ngOnInit(): void {
     this.mensajerecibido.getData$().pipe(takeUntil(this.unsubscribe)).subscribe(data => {
       this.recibido = data;
     });
-
   }
-
 }

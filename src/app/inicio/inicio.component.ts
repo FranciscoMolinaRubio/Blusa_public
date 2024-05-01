@@ -13,11 +13,7 @@ export class InicioComponent {
     this.viewportScroller.scrollToAnchor('bloque2');
   }
 
-  constructor(private viewportScroller: ViewportScroller) {
- 
-  }
-
-
+  constructor(private viewportScroller: ViewportScroller) {}
 
 }
 

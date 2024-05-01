@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { faPhone, faEnvelope, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -10,8 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })
-  
-  
+    
 export class ContactoComponent {
 
   constructor(private fb: FormBuilder,
@@ -27,7 +26,6 @@ export class ContactoComponent {
     to_name: "Blusa_Admin",
     message: "",
   })
-
 
   async send() {
     emailjs.init("_NoGZ7p3G7T-FpI3O");
@@ -45,7 +43,6 @@ export class ContactoComponent {
       from_email: "",
       message: ""
     });
-
   }
 }
 
