@@ -10,7 +10,7 @@ import { ComunicacionesService } from '../servicios/comunicaciones.service';
 export class EventosComponent implements OnInit {
 
   recibido: boolean;
-  textoLogeado= "Código de descuento para usuarios registrados: 'BlusaDescount'";
+  textoLogeado= "Clave de descuento para usuarios registrados: 'BlusaDescount'";
   
   private unsubscribe = new Subject<void>();
   constructor(public mensajerecibido: ComunicacionesService) {

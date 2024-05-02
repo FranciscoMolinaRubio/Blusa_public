@@ -29,7 +29,8 @@ export class NavegacionComponent {
   }
 
   logOut() {
-    this.afAuth.signOut().then(()=> this.router.navigate(['/loginreal']))
+    this.afAuth.signOut().then(() => this.router.navigate(['/loginreal']));
+    location.reload();
   }
  
   isClicked: boolean = false;

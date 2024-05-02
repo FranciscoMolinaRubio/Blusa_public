@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { CoolSocialLoginButtonsModule } from '@angular-cool/social-login-buttons';
 
 @Component({
   selector: 'app-login',

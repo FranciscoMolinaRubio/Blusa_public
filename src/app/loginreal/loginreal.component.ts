@@ -12,7 +12,7 @@ import { ComunicacionesService } from '../servicios/comunicaciones.service';
   templateUrl: './loginreal.component.html',
   styleUrls: ['./loginreal.component.css']
 })
-export class LoginrealComponent  implements OnInit, OnDestroy{
+export class LoginrealComponent{
 
   loginUsuario: FormGroup;
   subscription: Subscription;
@@ -30,15 +30,19 @@ export class LoginrealComponent  implements OnInit, OnDestroy{
       pass: ['', Validators.required]
     })
   }
-  ngOnDestroy(): void {
-  
-  }
-  ngOnInit(): void {
-  }
 
   googleClick() {
-    this.afAuth.signInWithPopup(new GoogleAuthProvider());
+    this.afAuth.signInWithPopup(new GoogleAuthProvider()).then((user) => {
+      this.router.navigate(['./eventos']);
+       this.toastr.success('Has entrado', 'Muy bien');
+       this.logged = true;
+       this.miservicio.setData(this.logged);
+     }).catch((error) => {
+       console.log(error);
+       this.toastr.error(this.firebaseError(error.code), 'Error')
+     })
   }
+
   login() {
 
     const mail = this.loginUsuario.value.mail;

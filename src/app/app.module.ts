@@ -34,7 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CoolSocialLoginButtonsModule } from '@angular-cool/social-login-buttons';
 
 const appRoutes: Routes = [
 
@@ -74,6 +75,7 @@ const appRoutes: Routes = [
     
   ],
   imports: [
+    CoolSocialLoginButtonsModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
