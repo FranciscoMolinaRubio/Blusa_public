@@ -36,6 +36,7 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CoolSocialLoginButtonsModule } from '@angular-cool/social-login-buttons';
+import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 
 const appRoutes: Routes = [
 
@@ -72,6 +73,7 @@ const appRoutes: Routes = [
     CartComponent,
     CartItemComponent,
     ModalComponent,
+    ModalTerminosComponent,
     
   ],
   imports: [

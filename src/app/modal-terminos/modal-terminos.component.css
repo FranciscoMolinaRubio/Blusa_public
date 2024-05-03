@@ -2,11 +2,7 @@
     z-index: 1;
 }
 
-.modal-backdrop {
-    z-index: 1;
-}
-
-.modal-body{
+.modal-content{
     background-color: rgb(8, 37, 63);
     color:rgb(236, 233, 228);
     padding: 10px;
@@ -24,5 +20,6 @@ span{
     background-color: rgb(8, 37, 63);
     color:rgb(236, 233, 228);
     padding: 10px;
-    border: solid, 1px, rgb(236, 233, 228);
+    border: solid, 1px, rgb(236, 233, 228);;
+
 }

@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { CoolSocialLoginButtonsModule } from '@angular-cool/social-login-buttons';
+import { ModalTerminosComponent } from '../modal-terminos/modal-terminos.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -19,12 +20,14 @@ export class LoginComponent {
   constructor(private fb: FormBuilder,
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
-    private router: Router) {
+    private router: Router,
+    public modalService2: NgbModal) {
 
     this.registrarUsuario = this.fb.group({
       mail: ['', [Validators.required, Validators.email]],
       pass: ['', Validators.required],
-      repitepass: ['', Validators.required]
+      repitepass: ['', Validators.required],
+      check: [false, Validators.requiredTrue]
     })
   }
 
@@ -33,10 +36,13 @@ export class LoginComponent {
     const mail = this.registrarUsuario.value.mail;
     const pass = this.registrarUsuario.value.pass;
     const repitepass = this.registrarUsuario.value.repitepass;
+    const check2 = this.registrarUsuario.value.check;
 
     if (pass !== repitepass) {
       this.toastr.error('Las contraseñas no coinciden', 'Error');
       return;
+    } else if (!check2) {
+      this.toastr.error('Debe aceptar las condiciones del servicio', 'Error');
     }
     this.loading = true;
     this.afAuth.createUserWithEmailAndPassword(mail, pass).then((user) => {
@@ -65,4 +71,15 @@ export class LoginComponent {
         return "Error desconocido. Qué le vamos a hacer..."
     }
   }
+
+   openModal2(): void {
+    this.modalService2.open(ModalTerminosComponent,  {scrollable:true, size:"lg"}); 
+     setTimeout(() => {
+      const modalElement = document.querySelector('.modal-backdrop'); 
+      if (modalElement) {
+        modalElement['style'].zIndex = '1'; 
+      }
+    }, 0);  
+  } 
 }
+

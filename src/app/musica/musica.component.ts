@@ -1,7 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
 import * as moment from 'moment';
 
 
@@ -23,20 +22,41 @@ export class MusicaComponent implements OnInit {
   audio = new Audio();
   ordenPlaylist: number = 20;
   rutaDeInicio: number = 0
-
-
   musicLength: string = '0:00';
   duration: number = 1;
   currentTime: string = '0:00';
 
+  constructor(
+    private viewportScroller: ViewportScroller,
+    private route: ActivatedRoute,
+    private router: Router) {
+
+    this.audio.ondurationchange = () => {
+      const totalSeconds = Math.floor(this.audio.duration),
+        duration = moment.duration(totalSeconds, 'seconds');
+      this.musicLength = duration.seconds() < 10 ?
+        `${Math.floor(duration.asMinutes())}:
+                                    0${duration.seconds()}` :
+        `${Math.floor(duration.asMinutes())}:
+                                    ${duration.seconds()}`;
+      this.duration = totalSeconds;
+    }
+
+    this.audio.ontimeupdate = () => {
+      const duration = moment.duration(
+        Math.floor(this.audio.currentTime), 'seconds');
+      this.currentTime = duration.seconds() < 10 ? 
+                         `${Math.floor(duration.asMinutes())}:
+                          0${duration.seconds()}` : 
+                         `${Math.floor(duration.asMinutes())}:
+                          ${duration.seconds()}`;
+    }
+
+    //Listener que detecta el final del audio y llama a la función playnext()
+    this.audio.addEventListener('ended', this.playNext.bind(this)); 
+  }
 
   ngOnInit(): void {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.pausesong();
-    });
-
 
     this.rutaDeInicio = this.route.snapshot.params['id'];
     if (this.rutaDeInicio == 1) {
@@ -50,7 +70,45 @@ export class MusicaComponent implements OnInit {
     } else if (this.rutaDeInicio == 5) {
       this.llamada5();
     }
+
+    this.audio.ondurationchange = () => {
+      const totalSeconds = Math.floor(this.audio.duration);
+      this.duration = totalSeconds;
+      const duration = moment.duration(totalSeconds, 'seconds');
+
+      this.musicLength = this.formatTime(duration);
+    };
+
+    // Configurar el evento para actualizar el tiempo actual del audio
+    this.audio.ontimeupdate = () => {
+      const currentSeconds = Math.floor(this.audio.currentTime);
+      const duration = moment.duration(currentSeconds, 'seconds');
+
+      this.currentTime = this.formatTime(duration);
+    };
   }
+
+  /*
+  * Función llamada desde el ngOnInit que formatea la duración
+  * de la canción en minutos y segundos
+  * @author Francisco Molina
+  * */
+  formatTime(duration: moment.Duration): string {
+    const minutes = Math.floor(duration.asMinutes());
+    const seconds = duration.seconds();
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
+
+  // Método para ajustar el tiempo según la posición del clic
+  onSeek(event: MouseEvent) {
+    const seekbar = event.target as HTMLProgressElement;
+    const clickX = event.offsetX; // Obtener la posición del clic
+    const seekbarWidth = seekbar.clientWidth; // Obtener el ancho total de la barra
+    const newTime = (clickX / seekbarWidth) * this.duration; // Calcular el nuevo tiempo
+
+    this.audio.currentTime = newTime; // Ajustar el tiempo del audio
+  }
+
 
 
   cancionesTodas = [
@@ -214,6 +272,29 @@ export class MusicaComponent implements OnInit {
     this.viewportScroller.scrollToAnchor('bloque2');
   }
 
+  /*
+  * Función que se activa desde un addeventlistener que se encuentra 
+  * en el constructor y que detecta que la canción en curso ha acabado.
+  * Esta función llama a playsong() pasándole el destino de la siguiente.
+  * @author Francisco Molina
+  * */
+  playNext() {
+    //Guardamos el valor del nombre del LP actual
+    let nombreLP = this.cancionesTodas[this.ordenPlaylist].LP;
+    // Incrementar el índice de la canción actual
+      this.ordenPlaylist++; 
+      this.donde = this.cancionesTodas[this.ordenPlaylist].d;
+      //Guardamos el valor del nombre del LP una vez incrementado ordenPLaylist
+      let nombreLP2 = this.cancionesTodas[this.ordenPlaylist].LP;
+      //Comprobamos que los nombres de los LP coincidan, si es así, play
+      if (nombreLP == nombreLP2) {
+        this.playsong(); // Reproduce la nueva canción
+      //Si no, pausamos la canción y decrementamos el valor del ordenPlaylist para que permanezca en el mismo LP
+      } else {
+        this.pausesong();
+      this.ordenPlaylist--;}
+  }
+
   playsong(): void {
     this.audio.src = this.donde;
     this.audio.play();
@@ -224,6 +305,11 @@ export class MusicaComponent implements OnInit {
     this.audio.pause();
   }
 
+  /*
+  * Función llamada desde el HTML y que es la que le da 
+  * funcionalidad al play de la vista lista de reproducción
+  * @author Francisco Molina
+  * */
   playdelalista(a: number): void {
     this.donde = this.cancionesTodas[a].d;
     this.audio.src = this.donde;
@@ -232,37 +318,8 @@ export class MusicaComponent implements OnInit {
     console.log(a);
   }
 
+  
   scrollup() {
     this.viewportScroller.scrollToAnchor('bloque1');
   }
-
-  constructor(private viewportScroller: ViewportScroller, private route: ActivatedRoute, private router: Router) {
-
-
-    this.audio.ondurationchange = () => {
-      const totalSeconds = Math.floor(this.audio.duration),
-        duration = moment.duration(totalSeconds, 'seconds');
-      this.musicLength = duration.seconds() < 10 ?
-        `${Math.floor(duration.asMinutes())}:
-                                    0${duration.seconds()}` :
-        `${Math.floor(duration.asMinutes())}:
-                                    ${duration.seconds()}`;
-      this.duration = totalSeconds;
-    }
-
-    this.audio.ontimeupdate = () => {
-      const duration = moment.duration(
-        Math.floor(this.audio.currentTime), 'seconds');
-      this.currentTime = duration.seconds() < 10 ? 
-                         `${Math.floor(duration.asMinutes())}:
-                          0${duration.seconds()}` : 
-                         `${Math.floor(duration.asMinutes())}:
-                          ${duration.seconds()}`;
-    }
-  }
-
-  durationSlider(event: any) {
-    this.audio.currentTime = event.target.value;
-  }
-
 }

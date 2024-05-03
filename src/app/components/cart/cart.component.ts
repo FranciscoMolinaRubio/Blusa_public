@@ -157,7 +157,7 @@ export class CartComponent implements OnInit{
 
   
   openModal(items, amount): void {
-    const modalRef = this.modalService.open(ModalComponent);
+    const modalRef = this.modalService.open(ModalComponent,  {size:"lg"});
     modalRef.componentInstance.items = items;
     modalRef.componentInstance.amount = amount;
     

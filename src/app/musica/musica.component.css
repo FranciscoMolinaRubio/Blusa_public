@@ -292,24 +292,35 @@ width: 366px;
   position: absolute;
   top: 640px;
   width: 366px;
-  background-color: #ffffff;
+  cursor: pointer;
+  z-index: 1;
+  accent-color: #C07B00;
+  background-color: #33473b;
+  border: none;
 
   .seekbar::-webkit-progress-value {
-    background-color: #4caf50; 
+  background-color: #33473b;
+  accent-color: #C07B00;
   }
   
   .seekbar::-webkit-progress-bar {
-    background-color: #ddd; 
+    background-color: #33473b;
+    accent-color: #C07B00;
   }
   .seekbar::-moz-progress-bar {
-    background-color: #4caf50;
+    background-color: #33473b;
+    accent-color: #C07B00;
   }
   
   .seekbar::-ms-fill {
-    background-color: #4caf50; 
+    background-color: #33473b;
+    accent-color: #C07B00;
   }
 
 }
+
+.seekbar::-moz-progress-bar {background-color: #103659 !important;}
+
 .bodyPlayer {
   position: absolute;
   top: 366px;

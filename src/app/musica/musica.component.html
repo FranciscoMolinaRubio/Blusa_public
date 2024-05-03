@@ -3,8 +3,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-
-
 <div class="banner" id="bloque1">
   <video autoplay muted loop playsinline class="tagline-video">
     <source src="./assets/loopHeaders/loopfrozenAncho.mp4" type="video/mp4">
@@ -78,9 +76,8 @@
         </div>
         <div class="search"></div>
         <div class="bodyPlayer"></div>
-        <progress class="seekbar" (input)="durationSlider($event)"
-          value="{{ audio.readyState === 0 ? 0 : audio.currentTime }}" max="{{ duration }}"></progress>
 
+          <progress class="seekbar" (click)="onSeek($event)" [value]="audio.currentTime" [max]="duration"></progress>
 
         <table class="list">
           <tr class="song" *ngFor="let S of cancionesLista; let i = index">
@@ -124,12 +121,8 @@
           <td><input type="checkbox" id="options" /><label class="options" for="options"></label></td>
         </table>
 
-
       </article>
-
-
     </div>
-
     <div class="containermouse" (click)="scrollup()">
       <div class="field">
         <div class="mouse"></div>
