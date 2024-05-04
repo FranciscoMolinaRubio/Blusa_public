@@ -92,7 +92,7 @@
 
  .containermouse {
    position: absolute;
-   top: 718%;
+   top: 1050%;
    left: 50%;
    bottom: 20px;
    display: flex;
@@ -124,14 +124,12 @@
    }
  }
 
-
  @keyframes wheel {
    to {
      opacity: 0;
      top: 10px;
    }
  }
-
 
  .scroll {
    width: 60px;
@@ -144,3 +142,21 @@
 
  }
 
+ @media(max-width:767px) {
+  .containermouse {
+    position: absolute;
+    top: 1910%;
+    left: 50%;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .gal img {
+    width: 100%;
+    padding: 7px 0;
+    margin-left: 15px;
+  }
+
+ }

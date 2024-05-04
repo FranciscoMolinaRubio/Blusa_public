@@ -294,30 +294,30 @@ width: 366px;
   width: 366px;
   cursor: pointer;
   z-index: 1;
-  accent-color: #C07B00;
+  accent-color: #0e2564;
   background-color: #33473b;
   border: none;
-
+}
   .seekbar::-webkit-progress-value {
-  background-color: #33473b;
-  accent-color: #C07B00;
+  background-color:#17015e;
+  accent-color:  #03414a;
   }
   
   .seekbar::-webkit-progress-bar {
-    background-color: #33473b;
-    accent-color: #C07B00;
+    background-color: #103659 !important;
+    accent-color: #35383e;
   }
   .seekbar::-moz-progress-bar {
-    background-color: #33473b;
-    accent-color: #C07B00;
+    background-color: #103659 !important;
+    accent-color: #012ea9;
   }
   
   .seekbar::-ms-fill {
-    background-color: #33473b;
-    accent-color: #C07B00;
+    background-color: #103659 !important;
+    accent-color: #012ea9;
   }
 
-}
+
 
 .seekbar::-moz-progress-bar {background-color: #103659 !important;}
 

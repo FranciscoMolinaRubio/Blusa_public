@@ -100,16 +100,21 @@ header {
     opacity: 0;
     width: 0;
     cursor: pointer;
+
 }
 
 #burguer.active .line2 {
     transform: translateY(2.5px) rotate(45deg);
     cursor: pointer;
+    color:aliceblue;
+    z-index: 1;
 }
 
 #burguer.active .line3 {
     transform: translateY(-2px) rotate(-45deg);
     cursor: pointer;
+    color:aliceblue;
+    z-index: 1;
 }
 
 #menu-movil div:nth-child(2) {
@@ -119,10 +124,11 @@ header {
     align-items: flex-start;
     justify-content: center;
     padding-left: 15px;
+    line-height: 28px;
     width: 100vw;
     height: 0px;
     position: fixed;
-    top: 0px;
+    top: 10px;
     left: 0px;
     transition: all 250ms ease-out;
     background-color: rgb(0, 0, 0);
@@ -130,7 +136,7 @@ header {
 }
 
 #menu-movil div.open:nth-child(2) {
-    height: 420px;
+    height: 480px;
 }
 
 #menu-movil a {
@@ -142,8 +148,4 @@ header {
 .icon {
     transform: scale(0.7);
     margin: 0;
-}
-
-#cesta2 {
-    margin-top: 15px;
 }

@@ -84,11 +84,17 @@ export class GaleriaComponent {
   public lightboxActive: boolean = false;
   public imgIndex: number = 0;
 
-  public manejador(index: number) {
-    this.lightboxActive = true;
-    this.imgIndex = index;
-  }
 
+
+  public manejador(index: number) {
+    if (this.isMobile()) {
+      this.lightboxActive = false;
+    
+    } else {
+      this.lightboxActive = true;
+      this.imgIndex = index;
+    }
+  }
   public manejadorbtn() {
     this.lightboxActive = false;
   }
@@ -96,9 +102,16 @@ export class GaleriaComponent {
   scrollup() {
     this.viewportScroller.scrollToAnchor('bloque1');
   }
-  
-  constructor(private viewportScroller: ViewportScroller) {}
+
+    isMobile(): boolean {
+      // Puedes definir un umbral para considerar un dispositivo como móvil
+      const mobileBreakpoint = 768; // Generalmente, cualquier cosa debajo de 768px es móvil
+      return window.innerWidth <= mobileBreakpoint;
+    
+   }
+  constructor (private viewportScroller: ViewportScroller) {}
 }
+
 
 interface GridImg {
   src: string,

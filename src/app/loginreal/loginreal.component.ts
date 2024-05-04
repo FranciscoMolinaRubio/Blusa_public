@@ -73,7 +73,7 @@ export class LoginrealComponent{
       case 'auth/missing-password':
         return "No ingresaste la contraseña";
       default:
-        return "Error desconocido. Qué le vamos a hacer..."
+        return "Error desconocido. Qué le vamos a hacer... Prueba a logearte con mail y contraseña si lo has intentado a través de Google desde un teléfono"
     }
   }
 }

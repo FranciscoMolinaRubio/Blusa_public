@@ -2,6 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -57,6 +58,12 @@ export class MusicaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.pausesong();
+    });
 
     this.rutaDeInicio = this.route.snapshot.params['id'];
     if (this.rutaDeInicio == 1) {
