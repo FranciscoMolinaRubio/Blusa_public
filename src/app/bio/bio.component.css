@@ -96,12 +96,10 @@
     font-weight: 200;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+h2 {
+    font-size: 24px;
+    line-height: 33px;
     color: #585f69;
     margin-top: 5px;
     text-shadow: none;
@@ -109,14 +107,7 @@ h6 {
     font-family: 'BlusaFont', serif;
 }
 
-h2 {
-    font-size: 24px;
-    line-height: 33px;
-}
-
-p,
-li,
-li a {
+p{
     color: #555;
 }
 

@@ -3,11 +3,6 @@
   src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
 }
 
-@font-face {
-  font-family: 'BlusaFont2';
-  src: url('/assets/Fuentes/Relevance.ttf');
-}
-
 .banner {
   height: 100vh;
   font-family: 'BlusaFont', sans-serif;
@@ -25,18 +20,7 @@
   overflow: hidden;
 }
 
-h1,
 h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
 p,
 li {
   font-family: "Poppins", sans-serif;
@@ -64,11 +48,6 @@ a:hover {
 
 h2 {
   font-size: 3.5rem;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -140,7 +119,7 @@ label.error {
 @media only screen and (max-width: 767px) {
   .banner {
     padding: 120px 0;
-    height: 100vh;
+    height: 900px;
     font-family: 'BlusaFont', sans-serif;
     position: relative;
     width: 100%;
@@ -162,16 +141,11 @@ label.error {
   }
 
   .content {
-    padding: 0rem 0;
+    padding-top: 0px;
   }
 
   h2 {
     font-size: 2.5rem;
-    font-weight: 700;
-  }
-
-  h3 {
-    font-size: 1rem;
     font-weight: 700;
   }
 
@@ -181,5 +155,4 @@ label.error {
   .form-control {
     height: 30px;
   }
-
 }

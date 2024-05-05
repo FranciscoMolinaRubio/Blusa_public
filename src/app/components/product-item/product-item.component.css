@@ -1,13 +1,13 @@
-.card-img-top{
+.card-img-top {
     width: 250px;
     height: 250px;
     align-self: center;
     padding-top: 10px;
     opacity: 1;
-    
+
 }
 
-.card{
+.card {
     padding-top: 10px;
     text-align: center;
     height: 420px;
@@ -16,48 +16,47 @@
 
 }
 
-.card-title{
+.card-title {
     font-size: 16px;
 }
 
-.icon{
-    width:20px;
+.icon {
+    width: 20px;
     height: 20px;
     padding-top: 2px;
     padding-bottom: 3px;
 }
 
-.card-body{
-    
-}
 
 @media only screen and (min-width: 768px) and (max-width: 1040px) {
-    .card-img-top{
-        width:70%;;
+    .card-img-top {
+        width: 70%;
         align-self: center;
         padding-top: 10px;
         opacity: 1;
-    height: 50%;}
-    .card{
+        height: 50%;
+    }
+
+    .card {
         padding-top: 10px;
         text-align: center;
         height: 80%;
-        widtht: 80%;
-        font-size: 13px;
-        opacity: 0.95;
-    
-    }
-}
-
-@media only screen and (max-width: 768px){
-    .card{
-        padding-top: 10px;
-        text-align: center;
-margin-left: 10%;
         width: 80%;
         font-size: 13px;
         opacity: 0.95;
-    
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        padding-top: 10px;
+        text-align: center;
+        margin-left: 10%;
+        width: 80%;
+        font-size: 13px;
+        opacity: 0.95;
+
     }
 
 }

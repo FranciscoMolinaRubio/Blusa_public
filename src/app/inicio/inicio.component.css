@@ -53,7 +53,6 @@
   font-family: 'BlusaFont', sans-serif;
   opacity: .8;
   font-size: 1vw;
-
 }
 
 .contenedor {
@@ -99,10 +98,9 @@
   font-size: 80%;
 }
 
-
 .containermouse {
   position: absolute;
-  top: 510px;
+  top: 550px;
   left: 50%;
   bottom: 20px;
   display: flex;
@@ -141,15 +139,6 @@
   }
 }
 
-.scroll {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #979797;
-  border-radius: 50%;
-  position: relative;
-  animation: down 1.5s infinite;
-  -webkit-animation: down 1.5s infinite;
-}
 
 @media only screen and (max-width: 767px) {
 

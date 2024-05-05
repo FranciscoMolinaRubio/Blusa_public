@@ -31,7 +31,6 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxSpinnerModule } from "ngx-spinner";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -97,7 +96,6 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     NgxPayPalModule,
     NgbModule,
-    NgxSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     BrowserAnimationsModule

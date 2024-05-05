@@ -1,9 +1,4 @@
 @font-face {
-  font-family: 'BlusaFont';
-  src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
-}
-
-@font-face {
   font-family: 'BlusaFont2';
   src: url('/assets/Fuentes/Relevance.ttf');
 }
@@ -29,34 +24,9 @@
   padding: 12rem 0;
 }
 
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-p,
-li {
+h2, p {
   font-family: "Poppins", sans-serif;
   color: #e0e0e0;
-}
-
-a {
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
-}
-
-a,
-a:hover {
-  text-decoration: none !important;
 }
 
 .text-black {
@@ -68,17 +38,11 @@ h2 {
   font-weight: 700;
 }
 
-h3 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
 .alert{
   font-family: 'BlusaFont2',sans-serif;
   font-size: 17px;
   opacity: 0.7;
 }
-
 
 @media only screen and (max-width: 767px) {
   .banner {

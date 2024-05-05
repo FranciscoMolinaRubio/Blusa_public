@@ -21,7 +21,7 @@ export class MusicaComponent implements OnInit {
   d = "";
   cancionesLista: any[] = [];
   audio = new Audio();
-  ordenPlaylist: number = 20;
+  ordenPlaylist: number = 32;
   rutaDeInicio: number = 0
   musicLength: string = '0:00';
   duration: number = 1;
@@ -154,26 +154,36 @@ export class MusicaComponent implements OnInit {
     { LP: "Blusa", titulo: "Blusa", orden: 32, d: "./assets/musica/blusa/BLUSA_BLUSA.mp3", duracion:"15:11" }
   ]
 
+
+
   backward() {
-
-    this.pausesong();
-
-    const ranges = [
-      { start: 1, end: 9 },
-      { start: 10, end: 15 },
-      { start: 16, end: 22 },
-      { start: 23, end: 32 }
+    this.pausesong(); // Detener la reproducción antes de retroceder
+    console.log(this.ordenPlaylist); // Registrar el valor actual de `ordenPlaylist`
+  
+    // Definir los rangos como pares [start, end]
+    const ranges: [number, number][] = [
+      [0, 8],
+      [9, 14],
+      [15, 21],
+      [22, 31],
     ];
   
-    for (const range of ranges) {
-      if (this.ordenPlaylist >= range.start && this.ordenPlaylist <= range.end) {
-        this.ordenPlaylist -= 1;
-        this.donde = this.cancionesTodas[this.ordenPlaylist].d;
-        break; // Salir del bucle una vez que se encuentra el rango adecuado
-      }
+    // Identificar el rango en el que se encuentra `ordenPlaylist`
+    const currentRange = ranges.find(
+      ([start, end]) => this.ordenPlaylist >= start && this.ordenPlaylist <= end
+    );
+  
+    // Retroceder solo si está dentro de un rango y no en el inicio del mismo
+    if (currentRange && this.ordenPlaylist > currentRange[0]) {
+      this.ordenPlaylist -= 1; // Retroceder un paso
     }
-    this.playsong();
+  
+    // Actualizar la posición de reproducción
+    this.donde = this.cancionesTodas[this.ordenPlaylist].d;
+  
+    this.playsong(); // Reanudar la reproducción
   }
+
 
   forward() {
 

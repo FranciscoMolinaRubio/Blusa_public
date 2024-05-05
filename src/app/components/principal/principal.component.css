@@ -3,11 +3,6 @@
     src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
   }
   
-  @font-face {
-    font-family: 'BlusaFont2';
-    src: url('/assets/Fuentes/Relevance.ttf');
-  }
-  
   a {
     cursor: pointer;
     color: black;
