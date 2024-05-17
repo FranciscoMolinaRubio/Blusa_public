@@ -31,6 +31,7 @@ export class NavegacionComponent {
   logOut() {
     this.afAuth.signOut().then(() => location.reload());
     location.reload();
+    this.router.navigate(["/" ]);
   }
  
   isClicked: boolean = false;

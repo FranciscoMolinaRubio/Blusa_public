@@ -105,7 +105,7 @@
 .contentplayer {
   position: absolute;
   width: 500px;
-  top: 52%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -685,8 +685,8 @@ audio {
 
 .containermouse {
   position: absolute;
-  top: 1650px;
-  left: 50%;
+  top: 1685px;
+  left: 49.5%;
   bottom: 20px;
   display: flex;
   align-items: center;

@@ -78,10 +78,13 @@ export class GaleriaComponent {
     { src: "./assets/Photo/Breakbeat/trackbandcamp.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Breakbeat/Untitled-3.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Varios/youtube.jpg", alt: 'Imagen 0' },
-    { src: "./assets/Photo/Varios/fotogramapromo2.jpg", alt: 'Imagen 0' }
+    { src: "./assets/Photo/Varios/fotogramapromo2.jpg", alt: 'Imagen 0' },
+    { src: "./assets/Photo/Varios/ultima1.jpg", alt: 'Imagen 0' },
+    { src: "./assets/Photo/Varios/ultima2.jpg", alt: 'Imagen 0' }
   ]
 
   public lightboxActive: boolean = false;
+  public mouseActive: boolean = false;
   public imgIndex: number = 0;
 
 
@@ -92,11 +95,13 @@ export class GaleriaComponent {
     
     } else {
       this.lightboxActive = true;
+      this.mouseActive = true;
       this.imgIndex = index;
     }
   }
   public manejadorbtn() {
     this.lightboxActive = false;
+    this.mouseActive = false;
   }
 
   scrollup() {

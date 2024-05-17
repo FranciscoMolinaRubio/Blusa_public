@@ -58,7 +58,7 @@
 .contenedor {
   position: absolute;
   height: 80%;
-  top: 310%;
+  top: 350%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -100,7 +100,7 @@
 
 .containermouse {
   position: absolute;
-  top: 550px;
+  top: 500px;
   left: 50%;
   bottom: 20px;
   display: flex;
