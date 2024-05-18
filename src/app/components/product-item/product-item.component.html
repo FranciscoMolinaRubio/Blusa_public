@@ -1,9 +1,14 @@
 <div class="card text-center mb-3">
-    <img [src]="product.imageUrl" class="card-img-top" alt="Artículo">
-    <div class="card-body">
+  <!-- Imagen del producto, enlazada dinámicamente al atributo imageUrl del producto -->
+  <img [src]="product.imageUrl" class="card-img-top" alt="Artículo">
+  <div class="card-body">
+      <!-- Título del producto, mostrando el nombre del producto -->
       <h5 class="card-title">{{product.name}}</h5>
+      <!-- Descripción del producto, mostrando la descripción del producto y su precio -->
       <p class="card-text">{{product.description}}. Precio: {{product.price}} €</p>
+      <!-- Botón para añadir el producto al carrito, con un ícono de carrito de compras -->
       <button class="btn btn-outline-secondary" (click)="addToCart()">
-        <mat-icon class="icon">shopping_cart</mat-icon> &nbsp;&nbsp; Añadir al carro</button>
-    </div>
+          <mat-icon class="icon">shopping_cart</mat-icon> &nbsp;&nbsp; Añadir al carro
+      </button>
   </div>
+</div>

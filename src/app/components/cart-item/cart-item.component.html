@@ -1,2 +1,9 @@
-<p>{{cartItem.productName}} : <strong>{{cartItem.qty}}</strong>  ud.<br>
-Total : <strong>{{cartItem.qty * cartItem.productPrice | number : '1.1-2'}}</strong> €</p>
+<p>
+    <!-- Nombre del producto -->
+    {{cartItem.productName}} :
+    <!-- Cantidad del producto, destacada en negrita -->
+    <strong>{{cartItem.qty}}</strong>  ud.<br>
+    <!-- Total del producto, calculado multiplicando la cantidad por el precio y formateado como número con dos decimales -->
+    Total :
+    <strong>{{cartItem.qty * cartItem.productPrice | number : '1.1-2'}}</strong> €
+</p>

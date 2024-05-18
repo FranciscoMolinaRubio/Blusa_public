@@ -1,5 +1,9 @@
 <div class="row">
+    <!-- Recorremos el array almacenado en products con todos los productos a la venta -->
+    <!-- Iteramos sobre cada producto en el array utilizando *ngFor -->
     <div class="col-md-6" *ngFor="let product of products">
-    <app-product-item [product]="product"></app-product-item>
+        <!-- Renderizamos el componente app-product-item para cada producto -->
+        <!-- Pasamos el producto actual como entrada al componente utilizando la propiedad [product] -->
+        <app-product-item [product]="product"></app-product-item>
     </div>
 </div>

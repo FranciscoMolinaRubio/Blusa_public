@@ -1,14 +1,17 @@
+<!-- Cargamos las dependencias de Bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-<div id="bloque1">
-</div>
+<!-- Bloque 1 -->
+<div id="bloque1"></div>
 
+<!-- Contenedor principal -->
 <div class="container-fluid">
   <div class="col-md-12">
     <div class="row">
-
+      <!-- Contenedor de las imágenes -->
       <div class="gal">
 
+        <!-- Iteración sobre las imágenes usando *ngFor -->
         <img (click)="manejador(i)" *ngFor="let eachImg of imagenes; let i=index" class="grid__img" [alt]="eachImg.alt"
           [src]="eachImg.src">
 
@@ -16,15 +19,18 @@
     </div>
   </div>
 
+  <!-- Lightbox que se abre al hacer clic en una imagen -->
   <div class="lightbox" [ngClass]="{'isActive': lightboxActive}">
     <button mat-icon-button (click)="manejadorbtn()">
-      <mat-icon>clear</mat-icon>
+      <mat-icon>clear</mat-icon> <!-- Botón para cerrar el lightbox -->
     </button>
-    <img alt="High" [src]="imagenes[imgIndex].src" class="lightboximg">
+    <img alt="High" [src]="imagenes[imgIndex].src" class="lightboximg"> <!-- Imagen en el lightbox -->
   </div>
+
+  <!-- Contenedor para el botón de desplazamiento vertical -->
   <div class="containermouse" (click)="scrollup()" [ngClass]="{'isActive': mouseActive}" >
     <div class="field">
-      <div class="mouse" ></div>
+      <div class="mouse" ></div> <!-- Botón de desplazamiento -->
     </div>
   </div>
 </div>

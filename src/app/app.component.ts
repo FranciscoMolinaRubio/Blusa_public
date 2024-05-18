@@ -11,7 +11,10 @@ import firebase from 'firebase/compat/app'
 export class AppComponent implements OnInit{
   title = 'Blusa';
 
-
+/**
+ * Funcion
+ * @author Francisco Molina Rubio
+ */
   ngOnInit(): void {
     firebase.initializeApp({
       apiKey: "AIzaSyC3Y0rRkmTBnWCuu-EwpWO4Md2R2AyQiJo",

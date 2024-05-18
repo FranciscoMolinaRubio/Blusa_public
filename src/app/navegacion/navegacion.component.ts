@@ -1,43 +1,40 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth'; 
-import { Router } from '@angular/router';
-import { ComunicacionesService } from '../servicios/comunicaciones.service';
-
-
+import { AngularFireAuth } from '@angular/fire/compat/auth'; // Importa AngularFireAuth para la autenticación
+import { Router } from '@angular/router'; // Importa Router para la navegación
 
 @Component({
   selector: 'app-navegacion',
   templateUrl: './navegacion.component.html',
   styleUrl: './navegacion.component.css'
-
 })
 export class NavegacionComponent {
-  numeroArticulos: number = 0;
-  
 
+  // Declara las propiedades de la clase
+  numeroArticulos: number = 0; // Representa el número de artículos
+  isClicked: boolean = false; // Indica si el menú ha sido clickeado o no
 
   constructor(
- private afAuth: AngularFireAuth, 
-    private router: Router,
-    private comunicacionesService: ComunicacionesService) {
-  }
+    private afAuth: AngularFireAuth, // Inyecta AngularFireAuth para la autenticación
+    private router: Router // Inyecta Router para la navegación
+  ) {}
 
-  ngOnInit(): void{
-    this.comunicacionesService.numeroArticulos.subscribe(
-      numeroArticulos =>{this.numeroArticulos=numeroArticulos} 
-    )
-  }
-
+  /**
+   * Función que realiza el logout del usuario y recarga la página
+   * Después de cerrar la sesión, redirige al usuario a la página de inicio
+   * @author Francisco Molina Rubio
+   */
   logOut() {
-    this.afAuth.signOut().then(() => location.reload());
-    location.reload();
-    this.router.navigate(["/" ]);
+    this.afAuth.signOut().then(() => location.reload()); // Cierra la sesión del usuario y recarga la página
+    location.reload(); // Recarga la página
+    this.router.navigate(["/"]); // Redirige al usuario a la página de inicio
   }
- 
-  isClicked: boolean = false;
 
+  /**
+   * Función que despliega el menú en el formato móvil
+   * Alterna la propiedad `isClicked`, que controla el despliegue del menú en dispositivos móviles
+   * @author Francisco Molina Rubio
+   */
   toggleClass() {
-    this.isClicked = !this.isClicked;
+    this.isClicked = !this.isClicked; // Cambia el valor de `isClicked` de verdadero a falso o viceversa
   }
-  }
-  
+}

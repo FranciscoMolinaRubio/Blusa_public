@@ -1,20 +1,23 @@
+<!-- Implementamos las dependencias de bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <div class="banner">
-    <video autoplay muted loop playsinline class="tagline-video">
-        <source src="./assets/loopHeaders/loopraices.mp4" type="video/mp4">
-    </video>
-    <div class="content">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-5 mr-auto">
-              <h2>Eventos</h2><br>
-              <p class="mb-5">No existen eventos por el momento</p>
-              <div class="alert alert-light" role="alert" *ngIf="recibido">{{textoLogeado}}</div>
+  <!--  Contenedor del vídeo background -->
+  <video autoplay muted loop playsinline class="tagline-video">
+    <source src="./assets/loopHeaders/loopraices.mp4" type="video/mp4">
+  </video>
 
-    
-          </div>
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mr-auto">
+          <h2>Eventos</h2><br>
+          <p class="mb-5">No existen eventos por el momento</p>
+
+          <!-- Contenedor que muestra por pantalla un mensaje si el usuario está logeado -->
+          <div class="alert alert-light" role="alert" *ngIf="recibido">{{textoLogeado}}</div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </div>

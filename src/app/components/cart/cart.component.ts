@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import { Product } from '../../models/product';
 import { CartItem } from '../../models/cart-item';
@@ -16,14 +16,15 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './cart.component.css'
 })
   
+// Clase que define la columna donde aparece la cesta y la posibilidad de pago
 export class CartComponent implements OnInit{
 
-  cartItems = [];
-  total: number = 0;
-  public payPalConfig?: IPayPalConfig;
-  recibido: boolean;
-  private unsubscribe = new Subject<void>();
-  descuento = "Aplicado 10% de Descuento a usuario registrado";
+  cartItems = []; // Arreglo para almacenar los elementos del carrito
+  total: number = 0; // Variable para almacenar el total del carrito
+  public payPalConfig?: IPayPalConfig; // Configuración de PayPal
+  recibido: boolean; // Bandera para saber si se ha recibido un mensaje
+  private unsubscribe = new Subject<void>(); // Sujeto para manejar la cancelación de suscripciones
+  descuento = "Aplicado 10% de Descuento a usuario registrado"; // Mensaje de descuento
 
   constructor(
     private messageService: MessageService,
@@ -32,24 +33,32 @@ export class CartComponent implements OnInit{
     public mensajerecibido: ComunicacionesService
    ) {}
 
+  /**
+   * Funcion que carga al comenzar el resto de funciones de la página
+   * @autor Francisco Molina Rubio
+   */
   ngOnInit(): void {
-    this.initConfig();
-    this.getItem();
-    this.total = this.getTotal();
+    this.initConfig(); // Inicializa la configuración de PayPal
+    this.getItem(); // Carga los items del carrito
+    this.total = this.getTotal(); // Calcula el total del carrito
     if (this.storageService.existsCart()) {
-      this.cartItems = this.storageService.getCart();
+      this.cartItems = this.storageService.getCart(); // Obtiene los items del carrito desde el almacenamiento
     }
     this.mensajerecibido.getData$().pipe(takeUntil(this.unsubscribe)).subscribe(data => {
-      this.recibido = data;
+      this.recibido = data; // Suscripción para recibir mensajes
     });
-    this.emptyCart();
+    this.emptyCart(); // Vacía el carrito
   }
 
+  /**
+   * Funcion que crea el carro de la compra
+   * @autor Francisco Molina Rubio
+   */
   private initConfig(): void {
     this.payPalConfig = {
         currency: 'EUR',
         clientId: environment.clientId,
-        createOrderOnClient: (data) => < ICreateOrderRequest > {
+        createOrderOnClient: (data) => <ICreateOrderRequest> {
             intent: 'CAPTURE',
             purchase_units: [{
                 amount: {
@@ -62,7 +71,7 @@ export class CartComponent implements OnInit{
                         }
                     }
                 },
-              items: this.getItemsList()
+                items: this.getItemsList()
             }]
         },
         advanced: {
@@ -85,61 +94,70 @@ export class CartComponent implements OnInit{
             data.purchase_units[0].items,
             data.purchase_units[0].amount.value
           );
-          this.emptyCart();
-            
-        },
-        onCancel: (data, actions) => {
-            console.log('OnCancel', data, actions);
-           
-        },
-        onError: err => {
-            console.log('OnError', err);
-          
-        },
-        onClick: (data, actions) => {
-            console.log('onClick', data, actions);
+          this.emptyCart(); // Vacía el carrito después de la autorización
         }
     };
-}
+  }
 
-  getItem(): void{
+  /**
+   * Funcion que añade un item al carro de la compra
+   * @autor Francisco Molina Rubio
+   */
+  getItem(): void {
     this.messageService.getMessage().subscribe((product: Product) => {
       let exists = false;
       this.cartItems.forEach(item => {
         if (item.productId === product.id) {
           exists = true;
-          item.qty++
+          item.qty++; // Incrementa la cantidad si el producto ya existe en el carrito
         }
-      })
+      });
       if (!exists) {
         const cartItem = new CartItem(product);
-        this.cartItems.push(cartItem);
+        this.cartItems.push(cartItem); // Agrega un nuevo producto al carrito
       }
-      this.total = this.getTotal();
-      this.storageService.setCart(this.cartItems);
+      this.total = this.getTotal(); // Actualiza el total del carrito
+      this.storageService.setCart(this.cartItems); // Guarda el carrito en el almacenamiento
     });
   }
 
-  getTotal(): number{
+  /**
+   * Funcion que calcula el precio total de la compra
+   * @autor Francisco Molina Rubio
+   */
+  getTotal(): number {
     let total = 0;
     this.cartItems.forEach(item => {
-      total += item.qty * item.productPrice;
+      total += item.qty * item.productPrice; // Calcula el total sumando los precios de los productos por sus cantidades
     });
-    return +total.toFixed(2);
+    return +total.toFixed(2); // Retorna el total con dos decimales
   }
 
-  emptyCart(): void{
-    this.cartItems = [];
-    this.total = 0;
-    this.storageService.clear();
+  /**
+   * Funcion que vacía el carro de la compra
+   * @autor Francisco Molina Rubio
+   */
+  emptyCart(): void {
+    this.cartItems = []; // Vacía el arreglo de items del carrito
+    this.total = 0; // Reinicia el total a 0
+    this.storageService.clear(); // Limpia el almacenamiento
   }
 
-  deleteItem(i: number): void{
-    this.cartItems.splice(i, 1);
-    this.storageService.setCart(this.cartItems);
+  /**
+   * Funcion que borra uno de los items del carro de la compra
+   * @param Number Índice del elemento a eliminar
+   * @autor Francisco Molina Rubio
+   */
+  deleteItem(i: number): void {
+    this.cartItems.splice(i, 1); // Elimina el item en la posición 'i'
+    this.storageService.setCart(this.cartItems); // Guarda el carrito actualizado en el almacenamiento
   }
 
-  getItemsList(): any[]{
+  /**
+   * Funcion que obtiene la lista de items para la configuración de PayPal
+   * @autor Francisco Molina Rubio
+   */
+  getItemsList(): any[] {
     const items: any[] = [];
     let item = {};
     this.cartItems.forEach((it: CartItem) => {
@@ -147,15 +165,17 @@ export class CartComponent implements OnInit{
         name: it.productName,
         quantity: it.qty,
         unit_amount: { value: it.productPrice, currency_code: 'EUR' }
-
       };
-      items.push(item);
-    }
-    );
-    return items;
+      items.push(item); // Agrega cada item a la lista de items
+    });
+    return items; // Retorna la lista de items
   }
 
-  
+
+/**
+ * Funcion que abre el modal que nos da la info de la compra realizada
+ * @author Francisco Molina Rubio
+ */
   openModal(items, amount): void {
     const modalRef = this.modalService.open(ModalComponent,  {size:"lg"});
     modalRef.componentInstance.items = items;
@@ -169,3 +189,4 @@ export class CartComponent implements OnInit{
     }, 0); 
   }
 }
+

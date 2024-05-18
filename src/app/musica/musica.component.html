@@ -1,10 +1,14 @@
+<!-- Cargamos las dependencias de bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <div class="banner" id="bloque1">
+
+    <!--  Contenedor del vídeo background -->
   <video autoplay muted loop playsinline class="tagline-video">
     <source src="./assets/loopHeaders/loopfrozenAncho.mp4" type="video/mp4">
   </video>
   
+    <!-- Contenedor del carrusel de imágenes -->
     <div class="contenedor">
       <div id="sec-2"></div>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -62,6 +66,7 @@
     </div>
 
 
+    <!-- Contenedor del reproductor -->
     <div class="contentplayer" id="bloque2">
       <article class="screen">
         <input type="checkbox" value="None" id="magicButton" name="check" />
@@ -119,6 +124,8 @@
 
       </article>
     </div>
+
+    <!-- Contenedor del botón de desplazamiento vertical -->
     <div class="containermouse" (click)="scrollup()">
       <div class="field">
         <div class="mouse"></div>

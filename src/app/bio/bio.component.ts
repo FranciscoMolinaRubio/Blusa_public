@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './bio.component.css',
 
 })
-export class BioComponent {
- 
-
-}
+export class BioComponent {}

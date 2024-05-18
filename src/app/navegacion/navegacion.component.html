@@ -3,6 +3,7 @@
 	
 	<nav class="navbar container-fluid navbar-expand-lg navbar-light nav-color">
 
+		<!-- Contenedor del navegador para versión desktop -->
 		<div  id="menu-desktop">
 			<div>
 			<ul class="navbar-nav">
@@ -23,8 +24,9 @@
 		</div>
 
 
-
+		<!-- Contenedor del navegador para versión móvil -->
 		<div id="menu-movil">
+			<!-- Contenedor del icono hamburguesa -->
 			<div [ngClass]="{'active': isClicked}" (click)="toggleClass()" id="burguer">
 				<span class="line1"></span>
 				<span class="line2"></span>

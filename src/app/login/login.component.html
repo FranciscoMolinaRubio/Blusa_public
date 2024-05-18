@@ -1,11 +1,14 @@
+<!-- Cargamos las dependencias de Bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <div class="banner">
+
+  <!-- Contenedor del vídeo de fondo -->
   <video autoplay muted playsinline loop class="tagline-video">
     <source src="./assets/loopHeaders/loopriacuelo.mp4" type="video/mp4">
   </video>
 
-
+  <!-- Sección principal con una imagen de fondo, solo se muestra si la variable 'loading' es falsa -->
   <section class="vh-100 bg-image" *ngIf="!loading">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
       <div class="container h-100">
@@ -15,36 +18,41 @@
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-5">Crea tu cuenta</h2>
 
+                <!-- Formulario de registro -->
                 <form (ngSubmit)="registrar()" [formGroup]="registrarUsuario">
+                  <!-- Campo de entrada para el correo electrónico -->
                   <div class="form-outline mb-4">
                     <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Tu Email"
                       name="mail" formControlName="mail" />
                   </div>
 
+                  <!-- Campo de entrada para la contraseña -->
                   <div class="form-outline mb-4">
                     <input type="password" id="form3Example4cg" class="form-control form-control-lg"
                       placeholder="Password" name="pass" formControlName="pass" />
                   </div>
 
+                  <!-- Campo de entrada para repetir la contraseña -->
                   <div class="form-outline mb-4">
                     <input type="password" id="form3Example4cdg" class="form-control form-control-lg"
                       placeholder="Repite tu password" name="repitepass" formControlName="repitepass" />
                   </div>
 
+                  <!-- Checkbox para aceptar los términos del servicio -->
                   <div class="form-check d-flex justify-content-left mb-5">
-
-                    <label id="texto"><input type="checkbox" formControlName="check" class="form-check-label" (click)="openModal2()">
-                 
+                    <label id="texto">
+                      <input type="checkbox" formControlName="check" class="form-check-label" (click)="openModal2()">
                       &nbsp;Estoy de acuerdo con los términos del servicio
-                    
                     </label>
                   </div>
 
+                  <!-- Botón para enviar el formulario de registro -->
                   <div class="d-flex justify-content-center">
                     <button type="submit" [disabled]="registrarUsuario.invalid"
                       class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registro</button>
                   </div>
 
+                  <!-- Enlace para iniciar sesión si ya se tiene una cuenta -->
                   <p class="text-center text-muted mt-5 mb-0">Ya tienes una cuenta? <a routerLink="/loginreal"
                       class="fw-bold text-body"><u>Login aquí</u></a></p>
 

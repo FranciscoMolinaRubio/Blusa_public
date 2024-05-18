@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
-
 @Component({
   selector: 'app-galeria',
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.css'
 })
 
+// Clase que define el componente para mostrar una galería de imágenes
 export class GaleriaComponent {
 
+  // Array que contiene las imágenes de la galería
   public imagenes: GridImg[] = [
-  
     { src: "./assets/Photo/Rotary/140420_9007.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Rotary/162750_175923542437795_6709027_n.jpg", alt: 'Imagen 0' },
     { src: "./assets/Photo/Rotary/cover.jpg", alt: 'Imagen 0' },
@@ -83,41 +83,57 @@ export class GaleriaComponent {
     { src: "./assets/Photo/Varios/ultima2.jpg", alt: 'Imagen 0' }
   ]
 
-  public lightboxActive: boolean = false;
-  public mouseActive: boolean = false;
-  public imgIndex: number = 0;
+  public lightboxActive: boolean = false; // Variable para activar o desactivar la lightbox
+  public mouseActive: boolean = false; // Variable para indicar si el mouse está activo en la lightbox
+  public imgIndex: number = 0; // Índice de la imagen actualmente seleccionada en la lightbox
 
-
-
+  /**
+   * Función que maneja la activación de la lightbox cuando se hace clic en una imagen
+   * @param index Índice de la imagen en la galería
+   * @autor Francisco Molina Rubio
+   */
   public manejador(index: number) {
     if (this.isMobile()) {
-      this.lightboxActive = false;
-    
+      this.lightboxActive = false; // Desactiva la lightbox en dispositivos móviles
     } else {
-      this.lightboxActive = true;
-      this.mouseActive = true;
-      this.imgIndex = index;
+      this.lightboxActive = true; // Activa la lightbox en dispositivos de escritorio
+      this.mouseActive = true; // Indica que el mouse está activo en la lightbox
+      this.imgIndex = index; // Establece el índice de la imagen seleccionada
     }
   }
+
+  /**
+   * Función que cierra la lightbox cuando se hace clic en el botón de cerrar
+   * @autor Francisco Molina Rubio
+   */
   public manejadorbtn() {
-    this.lightboxActive = false;
-    this.mouseActive = false;
+    this.lightboxActive = false; // Desactiva la lightbox
+    this.mouseActive = false; // Indica que el mouse ya no está activo en la lightbox
   }
 
+  /**
+   * Función que desplaza la vista hacia arriba hasta el elemento con el id 'bloque1'
+   * @autor Francisco Molina Rubio
+   */
   scrollup() {
-    this.viewportScroller.scrollToAnchor('bloque1');
+    this.viewportScroller.scrollToAnchor('bloque1'); // Desplaza la vista hasta el elemento 'bloque1'
   }
 
-    isMobile(): boolean {
-      // Puedes definir un umbral para considerar un dispositivo como móvil
-      const mobileBreakpoint = 768; // Generalmente, cualquier cosa debajo de 768px es móvil
-      return window.innerWidth <= mobileBreakpoint;
-    
-   }
-  constructor (private viewportScroller: ViewportScroller) {}
+  /**
+   * Función que determina si el dispositivo es móvil en función del tamaño de la pantalla
+   * @returns Verdadero si el dispositivo es móvil, falso en caso contrario
+   * @autor Francisco Molina Rubio
+   */
+  isMobile(): boolean {
+    // Define un umbral para considerar un dispositivo como móvil
+    const mobileBreakpoint = 768; // Generalmente, cualquier cosa debajo de 768px es móvil
+    return window.innerWidth <= mobileBreakpoint;
+  }
+
+  constructor(private viewportScroller: ViewportScroller) { }
 }
 
-
+// Interfaz para definir la estructura de los objetos de imágenes en la galería
 interface GridImg {
   src: string,
   alt: string

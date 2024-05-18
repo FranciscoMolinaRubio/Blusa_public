@@ -1,18 +1,25 @@
+<!-- Enlace a la hoja de estilos de Bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
- <div class="banner">
+<!-- Contenedor principal del banner -->
+<div class="banner">
+    <!-- Elemento de video para el fondo del banner -->
     <video autoplay muted loop playsinline class="tagline-video">
+        <!-- Fuente del video, enlazada localmente -->
         <source src="./assets/loopHeaders/loopbosqueAncho.mp4" type="video/mp4">
     </video>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <app-productlist></app-productlist>
-        </div>
-        <div class="col-md-4">
-            <app-cart></app-cart>
+    <!-- Contenedor principal de la página dentro del banner -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Componente que muestra la lista de productos -->
+                <app-productlist></app-productlist>
+            </div>
+            <div class="col-md-4">
+                <!-- Componente que muestra el carrito de compras -->
+                <app-cart></app-cart>
+            </div>
         </div>
     </div>
-</div>
 </div>
