@@ -3,6 +3,11 @@
   src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'BlusaFont2';
+  src: url('/assets/Fuentes/Relevance.ttf');
+}
+
 .banner {
   height: 1800px;
   font-family: 'BlusaFont', serif;
@@ -101,7 +106,6 @@
   box-sizing: border-box;
 }
 
-
 .contentplayer {
   position: absolute;
   width: 500px;
@@ -109,7 +113,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 @keyframes harlem {
   0% {
@@ -167,33 +170,38 @@ h2 {
   font-size: 10px;
   line-height: 10px;
   letter-spacing: 2.5px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
+  font-family: 'BlusaFont2', sans-serif;
   color: #fff;
 }
 
 h3 {
   font-size: 11px;
   line-height: 11px;
-  font-family: 'Open Sans', serif;
-  font-weight: 400;
+  font-family: 'BlusaFont2', serif;
   color: #dad8d8;
 }
+
+
 
 #duracion {
   font-size: 9px;
   line-height: 11px;
-  font-family: 'Open Sans', serif;
-  font-weight: 400;
+  font-family: 'BlusaFont2', serif;
   color: #dad8d8;
 }
 
 h4 {
   font-size: 14px;
   line-height: 14px;
-  font-family: 'Open Sans', serif;
-  font-weight: 700;
+  font-family: 'BlusaFont2', serif;
   color: #fff;
+}
+
+.length h5{
+  font-size: 11px;
+  line-height: 13px;
+  font-family: 'BlusaFont2', serif;
+  color: #cfcdcd;
 }
 
 h5 {
@@ -201,8 +209,7 @@ h5 {
   padding: 0;
   font-size: 13px;
   line-height: 13px;
-  font-family: 'Open Sans', serif;
-  font-weight: 700;
+  font-family: 'BlusaFont2', serif;
   color: #cfcdcd;
 }
 
@@ -211,8 +218,7 @@ h6 {
   padding: 0;
   font-size: 12px;
   line-height: 12px;
-  font-family: 'Open Sans', serif;
-  font-weight: 700;
+  font-family: 'BlusaFont2', serif;
   color: #f0f0f0;
 }
 
@@ -652,15 +658,15 @@ label.zmr:before {
   transition: all 0.15s linear;
 }
 
-td > #shuffle:checked ~ label.shuffle:before {
+td>#shuffle:checked~label.shuffle:before {
   color: #ff564c;
   transition: all 0.15s linear;
 }
 
-td > #repeat:checked ~ label.repeat:before {
+td>#repeat:checked~label.repeat:before {
   color: #ff564c;
   transition: all 0.15s linear;
-} 
+}
 
 .screen>#magicButton:checked~.footer {
   bottom: -60px;
@@ -717,14 +723,12 @@ audio {
   }
 }
 
-
 @keyframes wheel {
   to {
     opacity: 0;
     top: 10px;
   }
 }
-
 
 .scroll {
   width: 60px;
@@ -751,11 +755,8 @@ audio {
     position: relative;
     margin-bottom: 300px;
     display: flex;
-
     width: 50%;
     margin-left: 25%;
     margin-top: 0;
-
   }
-
 }
