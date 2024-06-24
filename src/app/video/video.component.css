@@ -75,4 +75,14 @@ img {
     /* Firefox */
     column-count: 1;
   }
+
+  .card-body {
+    height: 20px;
+  }
+
+  p {
+    position: relative;
+    bottom: 14px;
+    font-size: 10px;
+  }
 }

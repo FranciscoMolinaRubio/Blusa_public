@@ -18,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
-import { CommonModule } from '@angular/common';
 import { LoginrealComponent } from './loginreal/loginreal.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -36,6 +35,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CoolSocialLoginButtonsModule } from '@angular-cool/social-login-buttons';
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
+import { HashLocationStrategy, LocationStrategy, CommonModule } from '@angular/common';
 
 const appRoutes: Routes = [
 
@@ -50,7 +50,6 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'loginreal', component: LoginrealComponent },
   { path: 'merchPaypal', component: PrincipalComponent },
-  
 ];
 
 @NgModule({
@@ -73,8 +72,8 @@ const appRoutes: Routes = [
     CartItemComponent,
     ModalComponent,
     ModalTerminosComponent,
-    
   ],
+
   imports: [
     CoolSocialLoginButtonsModule,
     CommonModule,
@@ -89,7 +88,7 @@ const appRoutes: Routes = [
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right'
-    }), // ToastrModule added
+    }),
     MatIconModule,
     MatButtonModule,
     MatBadgeModule,
@@ -99,12 +98,13 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     BrowserAnimationsModule
-
   ],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
-  bootstrap: [AppComponent]
 
+  bootstrap: [AppComponent]
 })
+  
 export class AppModule { }

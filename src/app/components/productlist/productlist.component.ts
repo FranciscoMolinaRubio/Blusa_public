@@ -19,7 +19,7 @@ export class ProductlistComponent implements OnInit {
     public mensajerecibido: ComunicacionesService // Inyección de dependencia del servicio ComunicacionesService para recibir mensajes
   ) {}
 
-  recibido = false; // Bandera para saber si se ha recibido un mensaje
+  recibido = false; // Variable para saber si se ha recibido un mensaje
   private unsubscribe = new Subject<void>(); // Sujeto para manejar la cancelación de suscripciones
 
   /**
@@ -39,6 +39,7 @@ export class ProductlistComponent implements OnInit {
    * @autor Francisco Molina Rubio
    */
   loadProducts(): void {
+    console.log(this.recibido);
     if (this.recibido) {
       this.products = this.ProductService.getProductsDescount(); // Obtiene los productos con descuento si se ha recibido un mensaje
     } else {

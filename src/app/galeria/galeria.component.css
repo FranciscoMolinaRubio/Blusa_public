@@ -6,7 +6,6 @@
    width: 100%;
    padding-top: 5%;
    background-color: black;
-
  }
 
  #bloque1 {
@@ -16,7 +15,6 @@
  .row {
    width: 100%;
  }
-
 
  .grid__img {
    cursor: pointer;
@@ -52,8 +50,6 @@
    transition: 0.5s;
    pointer-events: auto;
  }
-
-
 
  button {
    position: absolute;
@@ -91,7 +87,6 @@
      /* Firefox */
      column-count: 1;
    }
-
  }
 
  .containermouse {

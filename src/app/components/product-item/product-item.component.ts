@@ -24,4 +24,6 @@ export class ProductItemComponent {
   addToCart(): void {
     this.messageService.sendMessage(this.product); // Envía el producto seleccionado al servicio de mensajes para que sea recibido por el componente padre
   }
+
+
 }

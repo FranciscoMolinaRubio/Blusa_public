@@ -16,6 +16,8 @@
 .alert h4{
     padding-top: 10px;
     font-family: 'BlusaFont2';
+    font-size: 19px;
+    padding-bottom: 10px;
 }
 
 button {
