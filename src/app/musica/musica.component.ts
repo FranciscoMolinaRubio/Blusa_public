@@ -60,7 +60,25 @@ export class MusicaComponent implements OnInit {
     { LP: "Toca", titulo: "Esqualo", orden: 29, d: "./assets/musica/toca/08 Esqualo_.mp3", duracion: "05:31" },
     { LP: "Toca", titulo: "Aruba", orden: 30, d: "./assets/musica/toca/09 Aruba_.mp3", duracion: "03:13" },
     { LP: "Toca", titulo: "Blowjob", orden: 31, d: "./assets/musica/toca/10 Blowjob_.mp3", duracion: "07:37" },
-    { LP: "Blusa", titulo: "Blusa", orden: 32, d: "./assets/musica/blusa/BLUSA_BLUSA.mp3", duracion: "15:11" }
+    { LP: "Blusa", titulo: "Blusa", orden: 32, d: "./assets/musica/blusa/BLUSA_BLUSA.mp3", duracion: "15:11" },
+    { LP: "Hijos de puta, gritó", titulo: "Heladísima", orden: 33, d: "./assets/musica/hijo/01 Heladisima.mp3", duracion: "05:10" },
+    { LP: "Hijos de puta, gritó", titulo: "Semiologías", orden: 34, d: "./assets/musica/hijo/02 Semiologias.mp3", duracion: "04:05" },
+    { LP: "Hijos de puta, gritó", titulo: "Bienvenida", orden: 35, d: "./assets/musica/hijo/03 Bienvenida.mp3", duracion: "08:34" },
+    { LP: "Hijos de puta, gritó", titulo: "Trumpets & Sex", orden: 36, d: "./assets/musica/hijo/04 Trumpets & Sex.mp3", duracion: "06:54" },
+    { LP: "Hijos de puta, gritó", titulo: "Skirla", orden: 37, d: "./assets/musica/hijo/05 Skirla.mp3", duracion: "05:10" },
+    { LP: "Hijos de puta, gritó", titulo: "Laura", orden: 38, d: "./assets/musica/hijo/06 Laura.mp3", duracion: "04:54" },
+    { LP: "Hijos de puta, gritó", titulo: "Tranquile", orden: 39, d: "./assets/musica/hijo/06 Laura.mp3", duracion: "01:10" },
+    { LP: "Annual for boys 1954", titulo: "Child", orden: 40, d: "./assets/musica/annual/1.mp3", duracion: "05:39" },
+    { LP: "Annual for boys 1954", titulo: "A Morning With Henry", orden: 41, d: "./assets/musica/annual/2.mp3", duracion: "03:36" },
+    { LP: "Annual for boys 1954", titulo: "Alone Chameleon", orden: 42, d: "./assets/musica/annual/3.mp3", duracion: "03:48" },
+    { LP: "Annual for boys 1954", titulo: "Green Friend", orden: 43, d: "./assets/musica/annual/4.mp3", duracion: "04:53" },
+    { LP: "Annual for boys 1954", titulo: "Ship", orden: 44, d: "./assets/musica/annual/5.mp3", duracion: "03:29" },
+    { LP: "Annual for boys 1954", titulo: "Two Ordinary Nights", orden: 45, d: "./assets/musica/annual/6.mp3", duracion: "03:50" },
+    { LP: "Annual for boys 1954", titulo: "Promenade", orden: 46, d: "./assets/musica/annual/7.mp3", duracion: "03:05" },
+    { LP: "Annual for boys 1954", titulo: "Green Song", orden: 47, d: "./assets/musica/annual/9.mp3", duracion: "03:53" },
+    { LP: "Annual for boys 1954", titulo: "Some Music", orden: 48, d: "./assets/musica/annual/10.mp3", duracion: "04:02" },
+    { LP: "Annual for boys 1954", titulo: "Henry Talks: Are We Going?", orden: 49, d: "./assets/musica/annual/11.mp3", duracion: "05:23" }
+
   ]
 
 
@@ -68,7 +86,7 @@ export class MusicaComponent implements OnInit {
     private viewportScroller: ViewportScroller,
     private route: ActivatedRoute,
     private router: Router) {
-  // Configura el evento para detectar el cambio de duración del audio
+    // Configura el evento para detectar el cambio de duración del audio
     this.audio.ondurationchange = () => {
       const totalSeconds = Math.floor(this.audio.duration),
         duration = moment.duration(totalSeconds, 'seconds');
@@ -79,7 +97,7 @@ export class MusicaComponent implements OnInit {
                                     ${duration.seconds()}`;
       this.duration = totalSeconds;
     }
-// Configura el evento para actualizar el tiempo actual del audio
+    // Configura el evento para actualizar el tiempo actual del audio
     this.audio.ontimeupdate = () => {
       const duration = moment.duration(
         Math.floor(this.audio.currentTime), 'seconds');
@@ -108,7 +126,7 @@ export class MusicaComponent implements OnInit {
     // Obtener el parámetro 'id' de la ruta actual
     this.rutaDeInicio = this.route.snapshot.params['id'];
 
-     // Llama a diferentes funciones dependiendo del valor del parámetro 'id'
+    // Llama a diferentes funciones dependiendo del valor del parámetro 'id'
     if (this.rutaDeInicio == 1) {
       this.llamada1();
     } else if (this.rutaDeInicio == 2) {
@@ -119,6 +137,10 @@ export class MusicaComponent implements OnInit {
       this.llamada4();
     } else if (this.rutaDeInicio == 5) {
       this.llamada5();
+    } else if (this.rutaDeInicio == 6) {
+      this.llamada6();
+    } else if (this.rutaDeInicio == 7) {
+      this.llamada7();
     }
     this.audio.ondurationchange = () => {
       const totalSeconds = Math.floor(this.audio.duration);
@@ -173,6 +195,8 @@ export class MusicaComponent implements OnInit {
       [9, 14],
       [15, 21],
       [22, 31],
+      [33, 39],
+      [40, 49]
     ];
     // Identificar el rango en el que se encuentra `ordenPlaylist`
     const currentRange = ranges.find(
@@ -199,7 +223,9 @@ export class MusicaComponent implements OnInit {
       { start: 0, end: 8 },
       { start: 9, end: 14 },
       { start: 15, end: 21 },
-      { start: 22, end: 31 }
+      { start: 22, end: 31 },
+      { start: 33, end: 39 },
+      { start: 40, end: 49}
     ];
     for (const range of ranges) {
       if (this.ordenPlaylist >= range.start && this.ordenPlaylist < range.end) {
@@ -310,7 +336,54 @@ export class MusicaComponent implements OnInit {
     this.cover = "./assets/Portadas/blusablusa.jpg";
     this.ordenPlaylist = 32;
     this.donde = this.cancionesTodas[32].d;
-    this.cancionesLista = [{ LP: "Blusa", titulo: "Blusa", orden: 1, d: "./assets/musica/blusa/BLUSA_BLUSA.mp3", duracion: "15:11" }];
+    this.cancionesLista = [];
+    this.viewportScroller.scrollToAnchor('bloque2');
+  }
+
+  /**
+   * Función que setea los elementos en el reproductor para el LP con id 5
+   * @author Francisco Molina Rubio
+   */
+  llamada6() {
+
+    this.pausesong();
+    this.LP = "¡Hijos de puta!, gritó";
+    this.cover = "./assets/Portadas/hijo.jpg";
+    this.ordenPlaylist = 33;
+    this.donde = this.cancionesTodas[33].d;
+    this.cancionesLista = [
+    { LP: "Hijos de puta, gritó", titulo: "Heladísima", orden: 33, d: "./assets/musica/hijo/01 Heladisima.mp3", duracion: "05:10" },
+    { LP: "Hijos de puta, gritó", titulo: "Semiologías", orden: 34, d: "./assets/musica/hijo/02 Semiologias.mp3", duracion: "04:05" },
+    { LP: "Hijos de puta, gritó", titulo: "Bienvenida", orden: 35, d: "./assets/musica/hijo/03 Bienvenida.mp3", duracion: "08:34" },
+    { LP: "Hijos de puta, gritó", titulo: "Trumpets & Sex", orden: 36, d: "./assets/musica/hijo/04 Trumpets & Sex.mp3", duracion: "06:54" },
+    { LP: "Hijos de puta, gritó", titulo: "Skirla", orden: 37, d: "./assets/musica/hijo/05 Skirla.mp3", duracion: "05:10" },
+    { LP: "Hijos de puta, gritó", titulo: "Laura", orden: 38, d: "./assets/musica/hijo/06 Laura.mp3", duracion: "04:54" },
+    { LP: "Hijos de puta, gritó", titulo: "Tranquile", orden: 39, d: "./assets/musica/hijo/06 Laura.mp3", duracion: "01:10" }];
+    this.viewportScroller.scrollToAnchor('bloque2');
+  }
+
+  /**
+   * Función que setea los elementos en el reproductor para el LP con id 5
+   * @author Francisco Molina Rubio
+   */
+  llamada7() {
+
+    this.pausesong();
+    this.LP = "Annual for boys 1954";
+    this.cover = "./assets/Portadas/annual.jpg";
+    this.ordenPlaylist = 40;
+    this.donde = this.cancionesTodas[40].d;
+    this.cancionesLista = [
+    { LP: "Annual for boys 1954", titulo: "Child", orden: 40, d: "./assets/musica/annual/1.mp3", duracion: "05:39" },
+    { LP: "Annual for boys 1954", titulo: "A Morning With Henry", orden: 41, d: "./assets/musica/annual/2.mp3", duracion: "03:36" },
+    { LP: "Annual for boys 1954", titulo: "Alone Chameleon", orden: 42, d: "./assets/musica/annual/3.mp3", duracion: "03:48" },
+    { LP: "Annual for boys 1954", titulo: "Green Friend", orden: 43, d: "./assets/musica/annual/4.mp3", duracion: "04:53" },
+    { LP: "Annual for boys 1954", titulo: "Ship", orden: 44, d: "./assets/musica/annual/5.mp3", duracion: "03:29" },
+    { LP: "Annual for boys 1954", titulo: "Two Ordinary Nights", orden: 45, d: "./assets/musica/annual/6.mp3", duracion: "03:50" },
+    { LP: "Annual for boys 1954", titulo: "Promenade", orden: 46, d: "./assets/musica/annual/7.mp3", duracion: "03:05" },
+    { LP: "Annual for boys 1954", titulo: "Green Song", orden: 47, d: "./assets/musica/annual/9.mp3", duracion: "03:53" },
+    { LP: "Annual for boys 1954", titulo: "Some Music", orden: 48, d: "./assets/musica/annual/10.mp3", duracion: "04:02" },
+    { LP: "Annual for boys 1954", titulo: "Henry Talks: Are We Going?", orden: 49, d: "./assets/musica/annual/11.mp3", duracion: "05:23" }];
     this.viewportScroller.scrollToAnchor('bloque2');
   }
 

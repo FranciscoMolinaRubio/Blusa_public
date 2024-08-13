@@ -1,16 +1,21 @@
-@font-face {
+ @font-face {
   font-family: 'BlusaFont';
   src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
-}
+} 
+
+ @font-face {
+  font-family: 'BlusaFont2';
+  src: url('/assets/Fuentes/AlteHaasGroteskBold.ttf');
+} 
 
 @font-face {
-  font-family: 'BlusaFont2';
-  src: url('/assets/Fuentes/Relevance.ttf');
+  font-family: 'BlusaFont3';
+  src: url('/assets/Fuentes/AlteHaasGroteskRegular.ttf');
 }
 
 .banner {
   height: 1800px;
-  font-family: 'BlusaFont', serif;
+  font-family: 'BlusaFont3', serif;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -184,10 +189,10 @@ h3 {
 
 
 #duracion {
-  font-size: 9px;
+  font-size: 10px;
   line-height: 11px;
   font-family: 'BlusaFont2', serif;
-  color: #dad8d8;
+  color: #a6a6a6;
 }
 
 h4 {
@@ -209,7 +214,7 @@ h5 {
   padding: 0;
   font-size: 13px;
   line-height: 13px;
-  font-family: 'BlusaFont2', serif;
+  font-family: inherit;
   color: #cfcdcd;
 }
 
@@ -319,12 +324,14 @@ label.main:hover:before {
 .seekbar {
   position: absolute;
   top: 640px;
-  width: 366px;
+  left:0px;
+  width: 365px;
   cursor: pointer;
   z-index: 1;
   accent-color: #0e2564;
   background-color: #33473b;
   border: none;
+  margin-left: 0;
 }
 
 .seekbar::-webkit-progress-value {
@@ -477,19 +484,19 @@ label.zmr:before {
   background: url('http://imgh.us/bar_3.svg') no-repeat;
   background-size: 100%;
   width: 320px;
-  height: 21px;
+  height: 15px;
   position: absolute;
-  top: 407px;
+  top: 420px;
   left: 23px;
-  transform-origin: 0% 0%;
+  transform-origin: 0% 20%;
   transition: all 0.3s ease-in;
 }
 
 .screen>#magicButton:checked~.bar {
   background-color: #43554a;
-  top: 119px;
+  top: 129px;
   left: 126px;
-  transform: scale(0.6875, 0.6875);
+  transform: scale(0.6875, 0);
   transition: all 0.3s ease-in;
 }
 
@@ -747,6 +754,10 @@ audio {
     height: 200vh;
   }
 
+  .peq {
+    font-size: 60%;
+  }
+
   .banner video {
     width: 300%;
   }
@@ -758,5 +769,115 @@ audio {
     width: 50%;
     margin-left: 25%;
     margin-top: 0;
+  }
+
+  .screen {
+    background-image: url("/assets/Photo/K/mandelbubparareprod.jpg");
+    padding: 0;
+    height: 650px;
+    width: 320px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    margin: -10px 0;
+  }
+
+  .bodyPlayer {
+    position: absolute;
+    top: 366px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 286px;
+    width: 320px;
+    background: #111;
+    transition: all 0.3s ease-in;
+  }
+
+  .list {
+    border-spacing: 0px 2px;
+    width: 297px;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 378px;
+    left: 12px;
+    transform-origin: 0% 0%;
+    transform: scale(0.1, 0.1);
+    transition: all 0.3s ease-in;
+  }
+
+  .seekbar {
+    position: absolute;
+    top: 640px;
+    width: 319px;
+    cursor: pointer;
+    z-index: 1;
+    accent-color: #0e2564;
+    background-color: #33473b;
+    border: none;
+  }
+
+  .bar {
+    background: url('http://imgh.us/bar_3.svg') no-repeat;
+    background-size: 100%;
+    width: 246px;
+    height: 11px;
+    position: absolute;
+    top: 407px;
+    left: 23px;
+    transform-origin: 0% 150%;
+    transition: all 0.3s ease-in;
+  }
+
+  .length h5{
+    font-size: 11px;
+    line-height: 13px;
+    margin-right: 10px;
+    font-family: 'BlusaFont2', serif;
+    color: #cfcdcd;
+  }
+
+  h5 {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 13px;
+    font-family: inherit;
+    color: #cfcdcd;
+  }
+
+  .coverImage img {
+    width: 320px;
+  }
+
+  .bodyPlayer {
+    position: absolute;
+    top: 320px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 324px;
+    width: 366px;
+    background: #111;
+    transition: all 0.3s ease-in;
+  }
+
+  .info {
+    width: 250px;
+    position: absolute;
+    left: 62px;
+    top: 385px;
+    transition: all 0.3s ease-in;
+  }
+  .screen>#magicButton:checked~.bar {
+    background-color: #43554a;
+    top: 129px;
+    left: 126px;
+    transform: scale(0.6875, 0);
+    transition: all 0.3s ease-in;
   }
 }

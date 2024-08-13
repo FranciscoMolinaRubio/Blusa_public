@@ -15,18 +15,27 @@
 
 
         <div class="carousel-inner">
+
           <div class="carousel-item active">
-            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/rotary.jpg" alt="First slide"
-              (click)="llamada1()">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="peq">Rotary, 2011</h5>
+            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/blusablusa.jpg" alt="Fith slide"
+              (click)="llamada5()">
+            <div class="carousel-caption d-md-block">
+              <h5 class="peq">Blusa, 2023</h5>
             </div>
           </div>
-          
+
+          <div class="carousel-item">
+            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/resonance.jpg" alt="Fourth slide"
+              (click)="llamada4()">
+            <div class="carousel-caption d-md-block">
+              <h5 class="peq">Resonance, 2020</h5>
+            </div>
+          </div>
+
           <div class="carousel-item">
             <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/k.jpg" alt="Second slide"
               (click)="llamada2()">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5 class="peq">K, 2017</h5>
             </div>
           </div>
@@ -34,24 +43,32 @@
           <div class="carousel-item">
             <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/tocabreakbeat.jpg" alt="Third slide"
               (click)="llamada3()">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h5 class="peq">Toca Breakbeat, perro!, 2014</h5>
             </div>
           </div>
 
-          <div class="carousel-item">
-            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/resonance.jpg" alt="Third slide"
-              (click)="llamada4()">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="peq">Resonance, 2020</h5>
+          <div class="carousel-item ">
+            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/rotary.jpg" alt="First slide"
+              (click)="llamada1()">
+            <div class="carousel-caption d-md-block">
+              <h5 class="peq">Rotary, 2011</h5>
             </div>
           </div>
 
           <div class="carousel-item">
-            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/blusablusa.jpg" alt="Third slide"
-              (click)="llamada5()">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="peq">Blusa, 2023</h5>
+            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/hijo.jpg" alt="Sixth slide"
+              (click)="llamada6()">
+            <div class="carousel-caption d-md-block">
+              <h5 class="peq">¡Hijos de puta!, gritó, 2004</h5>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img class="d-block w-75 rounded mx-auto" src="../assets/Portadas/annual.jpg" alt="Sixth slide"
+              (click)="llamada7()">
+            <div class="carousel-caption d-md-block">
+              <h5 class="peq">Annual for boys 1954, 1999</h5>
             </div>
           </div>
 
@@ -75,7 +92,7 @@
         <div class="coverImage">
           <img [src]=cover alt="Portada">
         </div>
-        <div class="search"></div>
+       <!--  <div class="search"></div> -->
         <div class="bodyPlayer"></div>
 
           <progress class="seekbar" (click)="onSeek($event)" [value]="audio.currentTime" [max]="duration"></progress>

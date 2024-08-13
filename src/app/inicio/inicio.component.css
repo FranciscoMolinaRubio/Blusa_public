@@ -152,6 +152,10 @@
     margin-bottom: 5px;
   }
 
+  .peq {
+    font-size: 50%;
+  }
+
   .banner {
     padding: 120px 0;
     height: 100vh;
@@ -197,6 +201,7 @@
   }
 
   .contenedor {
+    height: 150%;
     padding-bottom: 450px;
   }
 }

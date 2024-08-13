@@ -3,10 +3,15 @@
   src: url('/assets/Fuentes/Comfortaa-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'BlusaFont4';
+  src: url('/assets/Fuentes/AlteHaasGroteskRegular.ttf');
+}
+
 
 .banner {
   height: 100vh;
-  font-family: 'BlusaFont';
+  font-family: 'BlusaFont4';
   position: relative;
   width: 100%;
   overflow: hidden;
